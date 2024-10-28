@@ -1,44 +1,23 @@
 import React from 'react';
-import DownloadIcon from '@mui/icons-material/Download';
+import ButtonGroup from './ButtonGroup';
 import {ChatCircleDots} from "@phosphor-icons/react";
 
 function FooterConsult() {
+  const buttons = [
+    { label: "HRDe LMS", description: "통합본 다운로드", link: "/files/integrated.pdf" },
+    { label: "HRDe LMS", description: "브로슈어 다운로드", link: "/files/brochure.pdf" },
+    { label: "HRDe LMS", description: "APP 브로슈어 다운로드", link: "/files/app_brochure.pdf" },
+    { label: "HRDe LMS", description: "디자인 매뉴얼 다운로드", link: "/files/design_manual.pdf" }
+  ];
+
     return(
         <div className="footer_consult">
         <div className="sec1">
           <div className="wrap">
             <strong>HRDe솔루션은 훈련생에게 최고의 교육을 선사하고<br />
             원격훈련의 기준을 높이겠습니다.</strong>
-            <div className="btn_wrap">
-              <button>
-                <div className="txt">
-                  <span>HRDe LMS</span>
-                  <p>통합본 다운로드</p>
-                </div>
-                <DownloadIcon className='icon'/>
-              </button>
-              <button>
-               <div className="txt">
-                 <span>HRDe LMS</span>
-                 <p>브로슈어 다운로드</p>
-                </div>
-                <DownloadIcon className='icon'/>
-              </button>
-              <button>
-                <div className="txt">
-                  <span>HRDe LMS</span>
-                  <p>APP 브로슈어 다운로드</p>
-                </div>
-                <DownloadIcon className='icon'/>
-              </button>
-              <button>
-                <div className="txt">
-                  <span>HRDe LMS</span>
-                  <p>디자인 매뉴얼 다운로드</p>
-                </div>
-                <DownloadIcon className='icon'/>
-              </button>
-            </div>
+            
+            <ButtonGroup buttons={buttons} />
           </div>
         </div>
          <div className="sec2">
