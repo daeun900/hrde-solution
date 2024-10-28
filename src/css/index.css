@@ -1,0 +1,105 @@
+/* base */
+html {
+  width: 100%;
+}
+body {
+  width: 100%;
+}
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input {
+  margin: 0;
+  padding: 0;
+}
+body,
+table,
+th,
+td,
+input,
+textarea,
+select,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Sans KR", "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-style: normal;
+  text-decoration: none;
+}
+img,
+fieldset,
+iframe {
+  border: 0 none;
+}
+li,
+ul,
+ol {
+  list-style: none;
+}
+input,
+select,
+button {
+  vertical-align: middle;
+  color: unset;
+}
+i,
+em,
+address {
+  font-style: normal;
+}
+img {
+  vertical-align: middle;
+  border: none;
+}
+label,
+button {
+  cursor: pointer;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+/* a-style */
+a {
+  color: #222222;
+  text-decoration: none;
+  outline: none;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #222222;
+}

@@ -1,0 +1,187 @@
+@use "common" as *;
+
+.video_box {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    .background-video {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: auto;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -100;
+    }
+}
+
+//사업영역
+.main_sec1 {
+    position: relative;
+    background-image: url("../../public/img/mainsec1_bg.png");
+    padding: 100px 0 150px 0;
+    .wrap {
+        ul {
+            li {
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                color: #fff;
+                max-width: 568px;
+                border-bottom: 0.3px solid rgba(255, 255, 255, 0.5);
+                position: relative;
+                cursor: pointer;
+                h2 {
+                    font-size: 40px;
+                    font-weight: bold;
+                    line-height: 60px;
+                    margin-bottom: 10px;
+                }
+                h3 {
+                    font-size: 30px;
+                    line-height: 45px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                > span {
+                    font-size: 1;
+                }
+                button {
+                    background-color: transparent;
+                    width: fit-content;
+                    height: 0;
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                    span {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        color: #333;
+                        display: inline-block;
+                        font-size: 18px;
+                        padding: 1.5px 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            li::before {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #fff;
+                content: "";
+                transition: all 1s ease;
+            }
+            li:hover {
+                button {
+                    height: 40px;
+                    opacity: 1;
+                }
+            }
+            li:hover::before {
+                width: 100%;
+            }
+            li:first-of-type {
+                position: unset;
+                cursor: unset;
+            }
+        }
+    }
+}
+
+//HRDe NEWS
+.main_sec2 {
+    padding: 100px 0;
+    .wrap {
+        .title {
+            margin-bottom: 50px;
+            h2 {
+                font-size: 40px;
+                line-height: 60px;
+                font-weight: 600;
+            }
+        }
+        .content {
+            ul.con1 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                margin-bottom: 20px;
+                li {
+                    height: 290px;
+                    padding: 0 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    color: #fff;
+                    background-size: 100%;
+                    background-position: center;
+                    transition: all .3s ease;
+                    h3 {
+                        font-size: 30px;
+                        line-height: 45px;
+                        font-weight: 500;
+                    }
+                    button {
+                        @include round-button;
+                        width: 108px;
+                        height: 36px;
+                        font-size: 14px;
+                        margin-top: 30px;
+                        transition: all 0.3s ease;
+                    }
+                    button:hover {
+                        background-color: #fff;
+                        color: #333;
+                        border: none;
+                    }
+                }
+                li:nth-of-type(1) {
+                    background-image: url(../../public/img/mainsec1_1.png);
+                }
+                li:nth-of-type(2) {
+                    background-image: url(../../public/img/mainsec1_2.png);
+                }
+                li:nth-of-type(3) {
+                    background-image: url(../../public/img/mainsec1_3.png);
+                }
+                li:hover {
+                    background-size: 105%;
+                }
+            }
+            ul.con2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+                p {
+                    display: block;
+                    margin-top: 20px;
+                }
+            }
+            button.more {
+                @include round-button;
+                width: 100px;
+                height: 44px;
+                margin: 0 auto;
+                margin-top: 50px;
+            }
+            button.more:hover {
+                background-color: #333;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+}
+
