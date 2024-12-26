@@ -35,7 +35,7 @@ function Header() {
                 <Link to="/"><img src='/img/header-logo.png' alt='HRDe Solution'/></Link>
                 <ul>
                     <li><Link to="/about">회사소개</Link></li>
-                    <li><Link to="/contact">HRDe LMS</Link></li>
+                    <li><Link to="/lms">HRDe LMS</Link></li>
                     <li><Link to="/contact">Contents</Link></li>
                     <li><Link to="/contact">Consulting</Link></li>
                     <li><Link to="/contact">모아</Link></li>
