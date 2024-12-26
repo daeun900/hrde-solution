@@ -94,12 +94,12 @@ table {
 }
 /* a-style */
 a {
-  color: #222222;
+  color:unset;
   text-decoration: none;
   outline: none;
 }
 a:hover,
 a:active {
   text-decoration: none;
-  color: #222222;
+  color:unset;
 }
