@@ -86,7 +86,7 @@ function LMS() {
 
     return (
         <>
-            <div className="banner">
+            <div className="lms-banner">
                 <div className="wrap">
                     <div className="txt">
                         <h1>HRDe LMS</h1>

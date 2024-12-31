@@ -1,0 +1,121 @@
+.con-banner {
+  height: 660px;
+  background-image: url(../../public/img/content_banner.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  padding-bottom: 50px;
+  .txt {
+    margin-bottom: 50px;
+    h1 {
+      font-size: 50px;
+      line-height: 80px;
+      font-weight: 600;
+    }
+  }
+}
+
+.con_sec2 {
+  background-image: url(../../public/img/con-sec2-bg.png);
+  background-size: cover;
+  background-position-x: right;
+  .wrap {
+    display: flex;
+    padding: 0;
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: #fff;
+      strong {
+        display: block;
+        font-size: 46px;
+        margin-top: 30px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 10px;
+        font-weight: 300;
+      }
+    }
+    .right {
+      margin-top: 50px;
+    }
+  }
+}
+
+.con_sec {
+  .title {
+    text-align: center;
+    strong {
+      font-size: 40px;
+      line-height: 60px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
+
+.con_sec3 {
+  padding: 120px 0;
+  border-bottom: 20px solid #f8f8f8;
+  .content {
+    margin-top: 80px;
+  }
+}
+
+.con_sec4 {
+  padding: 120px 0;
+  .content {
+    margin-top: 50px;
+    .table{
+      margin-top: 40px;
+      .caption {
+        strong {
+          font-size: 28px;
+          line-height: 50px;
+        }
+        p {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+      table {
+        width: 100%;
+        margin: 20px 0 10px 0;
+  
+        tr{
+          border-bottom: 1px solid #B9B9B9;
+          border-top: 1px solid #B9B9B9;
+          th,td{
+            padding: 10px 20px;
+            border: 1px solid #b9b9b9;
+          }
+          th{
+            color: #767676;
+            background-color: #E6EDFA;
+          }
+          th:first-child, td:first-child {
+            border-left: none;
+          }
+          th:last-child, td:last-child {
+              border-right: none;
+          }
+        }
+      }
+      span {
+        font-size: 14px;
+        display: block;
+      }
+    }
+  
+  }
+}
