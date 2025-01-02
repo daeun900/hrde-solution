@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
 
 const SliderContainer = styled.div`
   position: relative;
-    margin: 100px 0 ;
+  margin: 100px 0;
   .title {
     span {
       font-size: 20px;
@@ -65,19 +65,41 @@ const SliderContainer = styled.div`
   }
 `;
 
-const Slider = ({ title, subtitle ,slides, slidesToShow = 3 }) => {
+const Slider = ({ title, subtitle, slides, slidesToShow = 3 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const startAutoSlide = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex + slidesToShow >= slides.length ? 0 : prevIndex + 1
+      );
+    }, 3000);
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(intervalRef.current);
+  };
+
+  useEffect(() => {
+    startAutoSlide();
+    return () => stopAutoSlide(); 
+  }, [slides.length, slidesToShow]);
 
   const handleNext = () => {
-    if (currentIndex + slidesToShow < slides.length) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    stopAutoSlide();
+    setCurrentIndex((prevIndex) =>
+      prevIndex + slidesToShow >= slides.length ? 0 : prevIndex + 1
+    );
+    startAutoSlide();
   };
 
   const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+    stopAutoSlide();
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - slidesToShow : prevIndex - 1
+    );
+    startAutoSlide();
   };
 
   return (
@@ -90,6 +112,9 @@ const Slider = ({ title, subtitle ,slides, slidesToShow = 3 }) => {
         <div
           className={`btn prev ${currentIndex === 0 ? "disabled" : ""}`}
           onClick={handlePrev}
+          role="button"
+          aria-label="Previous Slide"
+          tabIndex="0"
         >
           <ArrowCircleLeft size={44} weight="thin" />
         </div>
@@ -98,6 +123,9 @@ const Slider = ({ title, subtitle ,slides, slidesToShow = 3 }) => {
             currentIndex + slidesToShow >= slides.length ? "disabled" : ""
           }`}
           onClick={handleNext}
+          role="button"
+          aria-label="Next Slide"
+          tabIndex="0"
         >
           <ArrowCircleRight size={44} weight="thin" />
         </div>
