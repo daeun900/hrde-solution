@@ -4,7 +4,8 @@ import Table from '../components/Table';
 import Slider from '../components/Slider';
 import ButtonGroup from '../components/ButtonGroup';
 import FooterConsult from '../components/FooterConsult';
-
+import { useScrollAnimation } from '../hooks/ScrollAnimation'
+;
 function Contents() {
     //베너 버튼
     const buttons = [
@@ -102,8 +103,10 @@ function Contents() {
         },
       ];
 
-
-      
+    useScrollAnimation('.con_sec2 .wrap > div');
+    useScrollAnimation('.con_sec .title');
+    useScrollAnimation('.con_sec .table');
+    
     return (
         <>
             <div className="con-banner">

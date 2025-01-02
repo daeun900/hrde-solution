@@ -24,6 +24,17 @@
   .wrap {
     display: flex;
     padding: 0;
+    overflow: hidden;
+    > div{
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 1.3s ease;
+
+      &.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+    }
     .left {
       display: flex;
       flex-direction: column;
@@ -51,6 +62,15 @@
 .con_sec {
   .title {
     text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 1.3s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     strong {
       font-size: 40px;
       line-height: 60px;
@@ -78,6 +98,14 @@
     margin-top: 50px;
     .table{
       margin-top: 40px;
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity 0.6s ease, transform 2s ease;
+  
+      &.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
       .caption {
         strong {
           font-size: 28px;
@@ -91,7 +119,7 @@
       table {
         width: 100%;
         margin: 20px 0 10px 0;
-  
+ 
         tr{
           border-bottom: 1px solid #B9B9B9;
           border-top: 1px solid #B9B9B9;

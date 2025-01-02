@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect }  from 'react';
 import '../css/lms.scss';
+import LmsSlider from '../components/LmsSlider';
 import ButtonGroup from '../components/ButtonGroup';
 import FooterConsult from '../components/FooterConsult';
-import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
+import { useScrollAnimation } from '../hooks/ScrollAnimation';
 
 function LMS() {
     //베너 버튼
@@ -14,9 +15,6 @@ function LMS() {
     ];
 
     //lms-slider
-    const [currentSlide, setCurrentSlide] = useState(0); // 현재 슬라이드 인덱스
-    const [isDragging, setIsDragging] = useState(false); // 드래그 상태
-    const [startX, setStartX] = useState(0); // 드래그 시작점
     const slides = [
         { txt: <><span>통합 솔루션</span><strong>하나의 솔루션으로 <br />4가지 사업을<br />한번에!!</strong></>, img: "/img/lms-slide1.png" },
         { txt: <><span>랜딩페이지</span><strong>이제 원격교육원도 <br />온라인 마케팅과 LMS가 <br />진화해야 합니다.</strong></>, img: "/img/lms-slide2.png" },
@@ -24,66 +22,8 @@ function LMS() {
         { txt: <><span>사이버연수원</span><strong>한국산업인력공단의 <br />HRD FLEX 사업을 위한 <br />강력한 큐레이션 기능 탑재</strong></>, img: "/img/lms-slide4.png" },
     ];
 
-    const slidesRef = useRef(null); // 슬라이드 컨테이너 참조
-
-    const handleNext = () => {
-        if (currentSlide < slides.length - 1) {
-            setCurrentSlide(currentSlide + 1);
-        }
-    };
-
-    const handlePrev = () => {
-        if (currentSlide > 0) {
-            setCurrentSlide(currentSlide - 1);
-        }
-    };
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.clientX); // 마우스 시작 위치 저장
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-
-        const deltaX = e.clientX - startX;
-
-        if (deltaX > 50 && currentSlide > 0) {
-            handlePrev();
-            setIsDragging(false);
-        } else if (deltaX < -50 && currentSlide < slides.length - 1) {
-            handleNext();
-            setIsDragging(false);
-        }
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false); // 드래그 종료
-    };
-
-    const handleTouchStart = (e) => {
-        setIsDragging(true);
-        setStartX(e.touches[0].clientX); 
-    };
-
-    const handleTouchMove = (e) => {
-        if (!isDragging) return;
-
-        const deltaX = e.touches[0].clientX - startX;
-
-        if (deltaX > 50 && currentSlide > 0) {
-            handlePrev();
-            setIsDragging(false);
-        } else if (deltaX < -50 && currentSlide < slides.length - 1) {
-            handleNext();
-            setIsDragging(false);
-        }
-    };
-
-    const handleTouchEnd = () => {
-        setIsDragging(false); // 터치 종료
-    };
-
+    useScrollAnimation('.lms_sec .title');
+    
     return (
         <>
             <div className="lms-banner">
@@ -95,50 +35,7 @@ function LMS() {
                     <ButtonGroup buttons={buttons} />
                 </div>
             </div>
-            <div className="lms-slider">
-                <div className="wrap">
-                    <div
-                        className="slides-container"
-                        style={{
-                            transform: `translateX(-${currentSlide * 100}%)`,
-                            transition: isDragging ? "none" : "transform 0.5s ease-in-out",
-                            display: "flex",
-                        }}
-                        ref={slidesRef}
-                        onMouseDown={handleMouseDown}
-                        onMouseMove={handleMouseMove}
-                        onMouseUp={handleMouseUp}
-                        onMouseLeave={handleMouseUp}
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                        onTouchEnd={handleTouchEnd}
-                    >
-                        {slides.map((slide, index) => (
-                            <div className="slide" key={index} style={{ minWidth: "100%" }}>
-                                <div className="txt">{slide.txt}</div>
-                                <div className="img">
-                                    <img src={slide.img} alt="" />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="btn_wrap">
-                        <div className={`btn prev ${currentSlide === 0 ? "disabled" : "abled"}`} onClick={handlePrev}>
-                            <ArrowCircleLeft size={44} weight="thin" />
-                        </div>
-                        {slides.map((_, index) => (
-                            <div
-                                key={index}
-                                className={`dot ${index === currentSlide ? "active" : ""}`}
-                                onClick={() => setCurrentSlide(index)}
-                            ></div>
-                        ))}
-                        <div className={`btn next ${currentSlide === slides.length - 1 ? "disabled" : "abled"}`} onClick={handleNext}>
-                            <ArrowCircleRight size={44} weight="thin"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <LmsSlider slides={slides} />
             <div className="lms_sec lms_sec2">
                 <div className="wrap">
                     <div className="title">
