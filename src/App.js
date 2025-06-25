@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import LMS from './pages/LMS';
 import Contents from './pages/Contents';
+import Consulting from './pages/Consulting';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/about" element={<About/>} />
       <Route path="/lms" element={<LMS/>} />  
       <Route path="/contents" element={<Contents/>} />  
+      <Route path="/consulting" element={<Consulting/>} />  
     </Routes>
     <Footer />  
   </Router>
