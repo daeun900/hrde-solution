@@ -14,6 +14,13 @@
   padding: 0 20px;
 }
 
+input {
+  all: unset;
+  box-sizing: border-box; 
+}
+
+input::placeholder{color: #a6a6a6;}
+
 //Header
 header {
   position: fixed;
