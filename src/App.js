@@ -9,6 +9,7 @@ import About from './pages/About';
 import LMS from './pages/LMS';
 import Contents from './pages/Contents';
 import Consulting from './pages/Consulting';
+import Consult from './pages/Consult';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/lms" element={<LMS/>} />  
       <Route path="/contents" element={<Contents/>} />  
       <Route path="/consulting" element={<Consulting/>} />  
+      <Route path="/consult" element={<Consult/>} />  
     </Routes>
     <Footer />  
   </Router>
