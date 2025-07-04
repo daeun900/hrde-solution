@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
+import { useNavigate } from 'react-router-dom';
 
 function PriceCard({ title, price, priceDesc, featuresTitle, featuresList, featuresList2, tabs, tabPrices }) {
   
     const [activeTab, setActiveTab] = useState(0);
     const currentPrice = tabs && tabPrices ? tabPrices[activeTab] : { price, desc: priceDesc };
- 
+   const navigate = useNavigate();
     return (
     <div className="card">
       <div className="ttl">{title}</div>
@@ -28,7 +29,7 @@ function PriceCard({ title, price, priceDesc, featuresTitle, featuresList, featu
     }}
   />
       </div>
-      <button>
+      <button onClick={() => navigate('/consult')}>
         <p>견적 문의</p>
         <ArrowRight size={20} weight="bold" />
       </button>

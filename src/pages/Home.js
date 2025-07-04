@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import "../css/main.scss";
 import PriceCard from "../components/PriceCard";
 import { ArrowRight } from "@phosphor-icons/react";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const contentRef = useRef(null);
@@ -12,6 +13,8 @@ function Home() {
   };
 
   const [activeTab, setActiveTab] = useState(0);
+
+    const navigate = useNavigate();
   return (
     <>
       <div className="video_box">
@@ -27,7 +30,7 @@ function Home() {
             <div className="form">
               <input type="text" placeholder="이름을 입력하세요." />
               <input type="text" placeholder="이메일을 입력하세요." />
-              <button>상담신청</button>
+              <button onClick={() => navigate('/consult')}>상담신청</button>
             </div>
             <div className="txt">
               <img src="/img/main-banner-icn2.png" alt="아이콘" />
@@ -40,13 +43,13 @@ function Home() {
       <div className="main_sec1" ref={contentRef}>
         <div className="wrap">
           <div className="top">
-            <div>
+            <div onClick={() => navigate('/lms?tab=2')}>
               <img src="/img/main-con1-icn1.png" alt="아이콘" />
               <p>
                 데모 체험 바로가기 <ArrowRight size={20} weight="bold" />
               </p>
             </div>
-            <div>
+            <div onClick={() => navigate('/lms?tab=4')}>
               <img src="/img/main-con1-icn2.png" alt="아이콘" />
               <p>
                 브로슈어 바로가기 <ArrowRight size={20} weight="bold" />
@@ -198,6 +201,7 @@ function Home() {
           </ul>
         </div>
       </div>
+
       <div className="main_sec4">
         <div className="wrap">
           <div className="title">
@@ -269,6 +273,7 @@ function Home() {
           </div>
         </div>
       </div>
+      
       <div className="main_sec5">
         <div className="wrap">
           <div className="title">HRDe NEWS</div>

@@ -286,6 +286,12 @@
         border: 1px solid #d8d8d8;
         border-radius: 50px;
         margin: 30px auto;
+        transition: all .3s ease;
+      }
+      button:hover{
+        background-color: #52A3CF;
+        color: #fff;
+        border: none;
       }
       .exp {
         border-radius: 30px;

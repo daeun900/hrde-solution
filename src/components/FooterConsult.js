@@ -1,6 +1,5 @@
 import React from 'react';
 import ButtonGroup from './ButtonGroup';
-import {ChatCircleDots} from "@phosphor-icons/react";
 
 function FooterConsult() {
   const buttons = [
@@ -20,7 +19,7 @@ function FooterConsult() {
             <ButtonGroup buttons={buttons} />
           </div>
         </div>
-         <div className="sec2">
+  {/*        <div className="sec2">
             <div className='sec2_1'>
               <span>HRDe 고객센터</span>
               <strong>1811-9530</strong>
@@ -34,7 +33,7 @@ function FooterConsult() {
                 문의하기
               </button>
           </div>
-        </div>
+        </div> */}
       </div>
     )
 }

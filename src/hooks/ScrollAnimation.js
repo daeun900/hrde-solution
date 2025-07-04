@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useScrollAnimation = (selector, className = 'visible', threshold = 0.1) => {
+export const useScrollAnimation = (selector, className = 'visible', threshold = 0.1, deps) => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -19,5 +19,5 @@ export const useScrollAnimation = (selector, className = 'visible', threshold = 
         return () => {
             targets.forEach((target) => observer.unobserve(target));
         };
-    }, [selector, className, threshold]);
+    }, [selector, className, threshold, deps]); 
 };

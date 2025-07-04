@@ -5,10 +5,10 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // 투명 헤더
-  const transparentRoutes = ['/', '/consult'];
+  const transparentRoutes = ['/', '/consult', '/lms'];
 
-  const isTransparentRoute = transparentRoutes.includes(location.pathname);
+  const isTransparentRoute = transparentRoutes.some(route => location.pathname.startsWith(route));
+  const isLMSRoute = location.pathname.startsWith('/lms');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,23 +16,26 @@ function Header() {
     };
 
     if (isTransparentRoute) {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
     }
 
     return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [location.pathname, isTransparentRoute]);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location.pathname, isTransparentRoute]);
 
-    const headerClass = isTransparentRoute && !isScrolled ? 'unscrolled' : '';
+  const headerClass = isTransparentRoute && !isScrolled ? 'unscrolled' : '';
 
-    const logoSrc =
-        isTransparentRoute && !isScrolled
-          ? '/img/header-logo-white.png'
-          : '/img/header-logo.png';
+  // LMS만 예외 처리
+  const logoSrc =
+    isTransparentRoute && !isScrolled
+      ? isLMSRoute
+        ? '/img/header-logo.png' 
+        : '/img/header-logo-white.png'
+      : '/img/header-logo.png';
 
   return (
-    <header className={headerClass}>
+    <header className={headerClass + (isLMSRoute && !isScrolled ? ' lms' : '')}>
       <div className="wrap">
         <nav className="headerNav">
           <Link to="/">
@@ -40,9 +43,9 @@ function Header() {
           </Link>
           <ul>
             <li><Link to="/lms">LMS</Link></li>
-            <li><Link to="/contents">CONTENTS</Link></li>
-            <li><Link to="/consulting">CONSULTING</Link></li>
-            <li><Link to="/contact">모아</Link></li>
+            <li><Link to="/">CONTENTS</Link></li>
+            <li><Link to="/">CONSULTING</Link></li>
+            <li><Link to="/">모아</Link></li>
             <li><Link to="/consult" className='btn'>상담문의</Link></li>
           </ul>
         </nav>

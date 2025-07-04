@@ -1,6 +1,6 @@
 import "../css/consult.scss";
 import { ArrowRight } from "@phosphor-icons/react";
-import {  Link } from 'react-router-dom';
+
 function Consult() {
   return (
     <>
