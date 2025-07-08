@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../css/lms.scss';
 import { useScrollAnimation } from '../hooks/ScrollAnimation';
 import { CaretCircleLeft, CaretCircleRight, ArrowRight } from "@phosphor-icons/react";
@@ -80,7 +80,8 @@ const con5Data = [
 ];
 
 function LMS() {   
-    
+    const navigate = useNavigate();
+
     //배너 이미지 애니메이션
     const imgRefs = useRef([]);
     const txtRef = useRef(null);
@@ -426,11 +427,11 @@ function LMS() {
                     <p>타 솔루션과는 차원이 다른 스마트한 직업훈련 플랫폼입니다. </p>
                 </div>
                 <div className="content">
-                    <div>
+                    <div onClick={() => navigate('/consult')}>
                         <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
                         서비스 요금 <ArrowRight size={30} />
                     </div>
-                    <div>
+                    <div onClick={() => navigate('/consult')}>
                         <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
                         견적 문의 <ArrowRight size={30} />
                     </div>

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+  import { useState, useRef } from "react";
 import "../css/main.scss";
 import PriceCard from "../components/PriceCard";
 import { ArrowRight } from "@phosphor-icons/react";

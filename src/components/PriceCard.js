@@ -8,7 +8,7 @@ function PriceCard({ title, price, priceDesc, featuresTitle, featuresList, featu
     const currentPrice = tabs && tabPrices ? tabPrices[activeTab] : { price, desc: priceDesc };
    const navigate = useNavigate();
     return (
-    <div className="card">
+    <div className="priceCard">
       <div className="ttl">{title}</div>
       {tabs && (
         <ul className="tab">

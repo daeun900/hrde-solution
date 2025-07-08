@@ -5,10 +5,11 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const transparentRoutes = ['/', '/consult', '/lms'];
+  const transparentRoutes = ['/', '/consult', '/lms', '/contents'];
+  const blackRoutes = ['/lms', '/contents', '/consulting'];
 
   const isTransparentRoute = transparentRoutes.some(route => location.pathname.startsWith(route));
-  const isLMSRoute = location.pathname.startsWith('/lms');
+  const isBlackRoute = blackRoutes.some(route => location.pathname.startsWith(route));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,18 +25,20 @@ function Header() {
     };
   }, [location.pathname, isTransparentRoute]);
 
-  const headerClass = isTransparentRoute && !isScrolled ? 'unscrolled' : '';
+  const headerClass = [
+    isTransparentRoute && !isScrolled ? 'unscrolled' : '',
+    isBlackRoute && !isScrolled ? 'black' : ''
+  ].join(' ').trim();
 
-  // LMS만 예외 처리
   const logoSrc =
     isTransparentRoute && !isScrolled
-      ? isLMSRoute
-        ? '/img/header-logo.png' 
+      ? isBlackRoute
+        ? '/img/header-logo.png'
         : '/img/header-logo-white.png'
       : '/img/header-logo.png';
 
   return (
-    <header className={headerClass + (isLMSRoute && !isScrolled ? ' lms' : '')}>
+    <header className={headerClass}>
       <div className="wrap">
         <nav className="headerNav">
           <Link to="/">
@@ -43,8 +46,8 @@ function Header() {
           </Link>
           <ul>
             <li><Link to="/lms">LMS</Link></li>
-            <li><Link to="/">CONTENTS</Link></li>
-            <li><Link to="/">CONSULTING</Link></li>
+            <li><Link to="/contents">CONTENTS</Link></li>
+            <li><Link to="/consulting">CONSULTING</Link></li>
             <li><Link to="/">모아</Link></li>
             <li><Link to="/consult" className='btn'>상담문의</Link></li>
           </ul>

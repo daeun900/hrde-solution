@@ -1,229 +1,390 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../css/contents.scss';
-import Table from '../components/Table';
-import Slider from '../components/Slider';
-import ButtonGroup from '../components/ButtonGroup';
-import FooterConsult from '../components/FooterConsult';
-import { useScrollAnimation } from '../hooks/ScrollAnimation'
-;
+import PriceCard from "../components/PriceCard";
+import { useScrollAnimation } from '../hooks/ScrollAnimation';
+import {  ArrowRight,CaretCircleLeft,CaretCircleRight, CaretUp, CaretDown } from "@phosphor-icons/react";
+
 function Contents() {
-    //베너 버튼
-    const buttons = [
-        { label: "HRDe LMS", description: "통합본 다운로드", link: "/files/integrated.pdf" },
-        { label: "HRDe LMS", description: "브로슈어 다운로드", link: "/files/brochure.pdf" },
-        { label: "HRDe LMS", description: "APP 브로슈어 다운로드", link: "/files/app_brochure.pdf" },
-        { label: "HRDe LMS", description: "디자인 매뉴얼 다운로드", link: "/files/design_manual.pdf" }
-    ];
+       const navigate = useNavigate();
 
-    //sec1 슬라이더
-    const slides01 = [
-        "12개 법정교육 전콘텐츠 <br/> <b>무상지원</b>",
-        "당사 개발 조정계수 1.0 미만 <br/>B등급 모든 콘텐츠<br/><b>무상지원</b>",
-        "당사 개발 조정계수 1.0 B등급 콘텐츠<br/>훈련기관당 1개 콘텐츠<br/><b>무상지원</b>",
-        "개정 안전보건교육 312차시<br/><b>파격적 가격 제공</b>",
-        "A등급 개발 콘텐츠 20차시<br/><b>차시당 100만원에 제공</b>",
-        "근로자 개인 A등급 자격증과정<br/>1개 콘텐츠<br/><b>무상제공</b>",
-    ];
+    //배너 이미지 애니메이션
+    const imgRefs = useRef([]);
+    const txtRef = useRef(null);
 
-    const slides02 = [
-        "(주)HRDe솔루션 개발 모든 콘텐츠 <br/> <b>우선 공급</b>",
-        "조정계수 1.0 B등급 콘텐츠<br/>B등급 모든 콘텐츠<br/><b>무제한 공급</b>",
-        "고객사 요구 A등급 콘텐츠<br/>연간 2개 과정<br/><b>개발 납품</b>",
-        "고객사 요구 법정교육 콘텐츠<br/><b>개발 납품</b>",
-        "산업안전보건교육  312차시<br/><b>연간 1,000만원 임대</b>"
-    ];
+    useEffect(() => {
+    if (imgRefs.current.length) {
 
-    //sec4 테이블
-    const tableData = [
-        {
-        //법정 교육
-          columns01: [
-            { key: 'field', title: '분야', width: '30%' },
-            { key: 'content', title: '콘텐츠', width: '50%' },
-            { key: 'classNum', title: '차시', width: '20%', align: 'center' },
-          ],
-          data01: [
-            { field: '전 산업 공통', content: '자살예방교육', classNum: 2 },
-            { field: '대기업 및 공공기관', content: 'ESG 지속가능 경영', classNum: 1 },
-            { field: '보건의료기관', content: '4주기 급성기병원 인증 필수교육', classNum: 18 },
-          ],
-        //직무훈련
-        columns02: [
-            { key: 'field', title: '분야', width: '20%' },
-            { key: 'ncs', title: 'NCS 중분류', width: '40%' },
-            { key: 'adjustNum', title: '조정계수', width: '10%', align: 'center'  },
-            { key: 'courseNum', title: '과정 수', width: '10%', align: 'center'  },
-            { key: 'classNum', title: '차시', width: '10%' , align: 'center' },
-            { key: 'supplyDate', title: '심사승인', width: '10%', align: 'center' },
-        ],
-        data02: [
-            { field: '총무분야', ncs: 'NCS 기반 기업이 요구하는 필수 역량', adjustNum: '1.0', courseNum:'5개' , classNum:'20', supplyDate:'2024. 6회차'},
-            { field: '사회복지분야', ncs: 'NCS 기반 일상생활지원 시리즈', adjustNum: '1.0', courseNum:'5개' , classNum:'20', supplyDate:'2024. 6회차'},
-            { field: 'e-비지니스', ncs: 'NCS 기반 전자상거래 시리즈', adjustNum: '1.0', courseNum:'5개' , classNum:'20', supplyDate:'2024. 6회차'},
-            { field: '청소', ncs: 'NCS 기반 환경미화 시리즈', adjustNum: '1.0', courseNum:'5개' , classNum:'20', supplyDate:'2024. 6회차'},
-        ],
-        //OA 과정
-        columns03: [
-            { key: 'category', title: '구분', width: '15%' },
-            { key: 'content', title: '내용', width: '15%' },
-            { key: 'ncs', title: 'NCS 중분류', width: '40%' },
-            { key: 'courseNum', title: '과정 수', width: '10%', align: 'center' },
-            { key: 'classNum', title: '차시', width: '10%', align: 'center' },
-            { key: 'supplyDate', title: '심사승인', width: '10%', align: 'center' },
-        ],
-        data03: [
-            { category: { value: 'OA', rowSpan: '3' }, content: '아래아 한글', ncs: '초급 / 고급', courseNum: 2, classNum: 20, supplyDate: '2025. 1회차' },
-            { content: '엑셀', ncs: '초급 / 중급 / 고급 / 심화', courseNum: 4, classNum: 20, supplyDate: '2025. 1회차' },
-            { content: '파워포인트', ncs: '초급부터 심화까지', courseNum: 1, classNum: 20, supplyDate: '2025. 1회차' },
-            { category: '디자인' , content: '포토샵', ncs: '초급 / 중급 / 고급', courseNum: 3, classNum: 20, supplyDate: '2025. 1회차' },
-        ],
-        //마이크로러닝
-        columns04 : [
-            { key: 'category', title: '구분',colSpan: 2, width: '10%' },
-            { key: 'category2', title: '구분', width: '10%', display:'none' },
-            { key: 'course', title: '과정명', width: '40%' },
-            { key: 'courseNum', title: '과정 수', width: '15%', align: 'center' },
-            { key: 'supplyDate', title: '공급시기', width: '15%', align: 'center' },
-          ],
-          data04: [
-            {category: { value: 'IT분야', colSpan: '2' }, course:'인공지능 / 빅데이터 / 메타버스 / 반도체',courseNum:'약 320',supplyDate: { value: '2024년 12월', rowSpan: '8' } },
-            {category: { value: '보건의료분야', colSpan: '2' }, course:'병원안내 / 요양지원 / 의료기술',courseNum:'약 240'},
-            {category: { value:'사무행정분야', colSpan: '2' }, course:'사무환경 / 사무자동화 / 사무행정 / 그룹웨어',courseNum:'약 120'},
-            {category: { value:'보육분야', colSpan: '2' }, course:'어린이집 평가 / 보유계획수립 / 영유아지원',courseNum:'약 180'},
-            {category: { value:'총무분야', colSpan: '2' }, course:'NCS 기반 기업이 요구하는 필수 역량',courseNum:'약 280'},
-            {category: { value:'사회복지분야', colSpan: '2' }, course:'NCS 기반 일상생활지원 시리즈 ',courseNum:'약 200'},
-            {category: { value:'e-비지니스', colSpan: '2' }, course:'NCS 기반 전자상거래 시리즈',courseNum:'약 200'},
-            {category: { value:'청소', colSpan: '2' }, course:'NCS 기반 환경미화 시리즈',courseNum:'약 120'},
-            {category: { value:'OA', rowSpan: '3' }, category2:'한글' ,course:'초보부터 심화까지',courseNum:'40',supplyDate: { value: '2025년 1월', rowSpan: '4' }},
-            {category2:'엑셀', course:'초급 / 중급 / 고급 / 심화',courseNum:'160'},
-            {category2:'파워포인트', course:'초급부터 심화까지',courseNum:'80'},
-            {category: { value:'포토샵', colSpan: '2' }, course:'초급 / 중급 / 고급',courseNum:'120'},
-            {category:{value:'계', colSpan: '2'}, course:{value:'약 2,060개',colSpan:'3', align: 'right' }}
-        ]
-        },
-      ];
+        txtRef.current.classList.add("on");
 
-    useScrollAnimation('.con_sec2 .wrap > div');
-    useScrollAnimation('.con_sec .title');
-    useScrollAnimation('.con_sec .table');
+        setTimeout(() => {
+            imgRefs.current[1].classList.add("on");
+           
+        }, 300); 
+
+        setTimeout(() => {
+            imgRefs.current[0].classList.add("on");
+             imgRefs.current[2].classList.add("on");
+        }, 600);
+        }
+    }, []);
+
+    //배너 네비게이션
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const initialNav = Number(queryParams.get('tab')) || 0;
+
+    const [currentNav, setCurrentNav] = useState(initialNav);
+
+    //cont-con 네비게이션
+        const [currentIndex, setCurrentIndex] = useState(0);
+        
+    const sectionRefs0 = [useRef(null), useRef(null), useRef(null), useRef(null)];
+    const sectionRefs1 = [useRef(null), useRef(null), useRef(null)];
+
+
+        const getActiveRefs = () => {
+        if (currentNav === 0) return sectionRefs0;
+        if (currentNav === 1) return sectionRefs1;
+        return [];
+        };
+
+        const scrollToSection = (index) => {
+        const yOffset = -130;
+        const refs = getActiveRefs();
+        const element = refs[index].current;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+        };
+
+        useEffect(() => {
+            const handleScroll = () => {
+                const refs = getActiveRefs();
+                refs.forEach((ref, index) => {
+                const rect = ref.current.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    setCurrentIndex(index);
+                }
+                });
+            };
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+            }, [currentNav]); // 🔑 Nav 바뀌면 새로 적용
+
+
+    //스크롤 애니메이션
+    useScrollAnimation('.cont_con .title', 'visible', 0.1, currentNav);
     
+    //qna 토글
+     const [isOpen, setIsOpen] = useState(false);
+
+    const toggleAnswer = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <>
-            <div className="con-banner">
-                <div className="wrap">
-                    <div className="txt">
-                        <h1>HRDe CONTENTS</h1>
-                        <p>HRDe솔루션은 140여 원격훈련기관과 고통을 함께 나누기 위해 <br />
-                        콘텐츠를 파격적 조건으로 제공합니다.</p>
-                    </div>
-                    <ButtonGroup buttons={buttons} />
+             <div className="cont_banner">
+            <div className="wrap">
+                <div className="txt" ref={txtRef}>
+                    <strong>HRDe가 만든 콘텐츠는 <br />
+                    다릅니다.</strong>
+                    <p>
+                  단순 영상이 아닌, 교육효과에 집중한 설계와 스토리텔링 <br />
+                    전문 강사진과 함께 기획한 고품질 콘텐츠로 <br />
+                    학습자의 몰입도와 완성도를 높입니다. <br />
+                    귀 기관의 교육 목적에 정확히 맞춘 콘텐츠, <br />
+                    지금 바로 경험해보세요.
+                    </p>
                 </div>
-            </div>
-            <div className="con_sec1">
-                <div className="wrap">
-                    <Slider
-                    slides={slides01}
-                    slidesToShow={3}
-                    title="모든 훈련기관"
-                    subtitle="HRDe솔루션은 모든 훈련기관에 <br /> 파격적인 조건으로 콘텐츠를 제공합니다."
-                    />
-                    <Slider
-                    slides={slides02}
-                    slidesToShow={3}
-                    title="HRDe 파트너스"
-                    subtitle="HRDe솔루션은 미래를 향해 함께 나아갈<br />원격훈련기관을 기다립니다."
-                    />
+                <div className="img">
+                    {[
+                        { src: "/img/cont/cont-banner-icn1.png", alt: "필름 아이콘" },
+                        { src: "/img/cont/cont-banner-icn2.png", alt: "노트북 아이콘" },
+                        { src: "/img/cont/cont-banner-icn3.png", alt: "책 아이콘" },
+                    ].map((img, i) => (
+                        <img
+                        key={i}
+                        src={img.src}
+                        alt={img.alt}
+                        ref={(el) => (imgRefs.current[i] = el)}
+                        />
+                    ))}
                 </div>
+
+                <ul className="cont_nav">
+                <li className={currentNav === 0 ? 'on' : ''} onClick={() => setCurrentNav(0)}>
+                    콘텐츠 개발
+                </li>
+                <li className={currentNav === 1 ? 'on' : ''} onClick={() => setCurrentNav(1)}>
+                    콘텐츠 임대
+                </li>
+            </ul>
+
             </div>
-            <div className="con_sec2">
-                <div className="wrap">
-                    <div className="left">
-                        <img src="/img/con-sec2-logo.png" alt="HRDe Solution" />
-                        <strong>대한민국 1등 전문가들의</strong>
-                        <img src="/img/con-sec2-txt.png" alt="프리미엄 콘텐츠" />
-                        <p>훈련생 만족도 UP!! 탄탄하게 자리잡은 HRDe 솔루션이 결과로 증명합니다.</p>
-                    </div>
-                    <div className="right">
-                        <img src="/img/con-sec2-img.png" alt="HRDe 전문 아나운서 김도희 강사, HRDe 전문 강사 전운기 교수" />
-                    </div>
+        </div>
+
+        {/*1. 콘텐츠 개발 */}
+        {currentNav === 0 && (
+        <>
+            <div className="cont_con_nav">
+                <div className="title">
+                    <strong>동영상 제작</strong>
+                    <p>콘텐츠 제작에 특화된 전문성, 체계성을 바탕으로 고품질의 자체개발 콘텐츠를 제작해드립니다.</p>
                 </div>
+                <ul>
+                {["콘텐츠 제작", "제작 방식", "프로세스", "제작 비용"].map(
+                    (label, index) => (
+                    <li
+                        key={index}
+                        className={currentIndex === index ? "on" : ""}
+                        onClick={() => scrollToSection(index)}
+                    >
+                        {label}
+                    </li>
+                    )
+                )}
+                </ul>
             </div>
-            <div className="con_sec con_sec3">
+             <div className="cont_con cont_con1"  ref={sectionRefs0[0]}>
                 <div className="wrap">
                     <div className="title">
                         <strong>
-                        ㈜HRDe Solution의 사업주훈련 콘텐츠는 <br />
-                        학습자 만족도를 최고의 가치로 합니다.
+                            최신 트렌드의 고객 맞춤형 자체개발 콘텐츠 제작 <br />
+                            <span>원격훈련 콘텐츠 제작 전문 솔루션</span>
                         </strong>
-                        <p>
-                        창사 이후 개발 모든 콘텐츠 A등급!!  <br />
-                        학습자의 평가를 도와주는 챗봇 러비 탑재!!
-                        </p>
                     </div>
                     <div className="content">
-                        <img src="/img/con-sec3.png" alt="" />
-                    </div>
-                </div>
-            </div>
-            <div className="con_sec con_sec4">
-                <div className="wrap">
-                    <div className="title">
-                        <strong>
-                            신규 개발 참조 사항
-                        </strong>
-                        <p>
-                        HRDe 솔루션의 신규개발 콘텐츠에 대한 사항으로 고객사에서는 참조하시기 바랍니다.
-                        </p>
-                    </div>
-                    <div className="content">
-                        <div className="table">
-                            <div className="caption">
-                                <strong>법정교육</strong>
-                                <p>다음 표의 법정교육을 신규 개발하였으므로 고객사께서는 참조하여 주십시오</p>
-                            </div>
-                            {tableData.map((table, index) => (
-                                <Table key={index} columns={table.columns01} data={table.data01} />
-                            ))}
-                            <span>* 법정교육 콘텐츠는 지속적으로 업그레이드 예정입니다.  </span>
-                            <span>* 고객사에서 필요한 특수분야 법정교육은 협의를 거쳐 개발할 예정입니다.</span>
+                        <div className="img">
+                            <img src="/img/cont/cont-con1.png" alt="전문성, 체계성, 다양성" />
                         </div>
-                       <div className="table">
-                            <div className="caption">
-                                <strong>직무훈련과정</strong>
-                                <p>조정계수 1.0인 다음 표의 콘텐츠를 개발하여 심사일정에 따라 순차적으로 보급할 예정입니다.</p>
+                        <ul>
+                            <li>
+                            <div className="img"><img src="/img/cont/cont-con1-icn1.png" alt="" /></div>
+                            <div className="txt">
+                                    <strong>교육 콘텐츠 기획·개발</strong>
+                                    <p>고객의 니즈와 최신 트렌드를 파악하여 교육대상, 목적, 내용에 맞는 맞춤형 콘텐츠 기획·개발</p>
                             </div>
-                            {tableData.map((table, index) => (
-                                <Table key={index} columns={table.columns02} data={table.data02} />
-                            ))}
-                            <span>* 상기 표의 심사승인 일정은 개발일정에 따라 변경될 수 있습니다.    </span>
-                            <span>* 상기 표의 사업주 / 근로자개인(국민내일배움카드) 겸용 승인 콘텐츠입니다.</span>
-                       </div>
-                       <div className="table">
-                            <div className="caption">
-                                <strong>OA과정</strong>
-                                <p>조정계수 1.0인 다음 표의 콘텐츠를 개발하여 심사일정에 따라 순차적으로 보급할 예정입니다.</p>
+                            </li>
+                            <li>
+                            <div className="img"><img src="/img/cont/cont-con1-icn2.png" alt="" /></div>
+                            <div className="txt">
+                                    <strong>이러닝 콘텐츠 제작</strong>
+                                    <p>다양한 분야의 풍부한 이러닝 콘텐츠 제작 경험을 바탕으로 고품질의 우수한 이러닝 콘텐츠 제작</p>
                             </div>
-                            {tableData.map((table, index) => (
-                                <Table key={index} columns={table.columns03} data={table.data03} />
-                            ))}
-                            <span>* 상기 표의 사업주 / 근로자개인(국민내일배움카드) 겸용 심사승인 콘텐츠입니다.</span>
-                       </div>
-                       <div className="table">
-                            <div className="caption">
-                                <strong>마이크로러닝</strong>
-                                <p>마이크로러닝 콘텐츠는 다음 표와 같이 공급할 예정입니다.</p>
-                            </div>
-                            {tableData.map((table, index) => (
-                                <Table key={index} columns={table.columns04} data={table.data04} />
-                            ))}
-                            <span>* 마이크로 러닝 콘텐츠 : 단위 학습목표를 가진 5-10분 분량의 콘텐츠 </span>
-                            <span>* 사용용도  : 2025년 산업인력공단 HRD FLEX 사업 및 자체 훈련운영</span>
-                       </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-             
             </div>
-            <FooterConsult />
+
+             <div className="cont_con cont_con2"  ref={sectionRefs0[1]}>
+                <div className="title">
+                    <strong>㈜HRDe Solution의 사업주훈련 콘텐츠는  <br />
+                    학습자 만족도를 최고의 가치로 합니다.</strong>
+                    <p>창사 이후 개발 모든 콘텐츠 A등급!! 학습자의 평가를 도와주는 챗봇 러비 탑재!!</p>
+                </div>
+                <div className="content">
+                    <div className="img">
+                        <img src="/img/cont/cont-con2.png" alt="인트로,사전 지식 테스트, 학습을 시작하며, 플립러닝, 본강의, 키포인트, 아웃트로" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="cont_con cont_con3"  ref={sectionRefs0[2]}>
+                <div className="title">
+                    <strong><span>서비스</span> 프로세스</strong>
+                </div>
+                <div className="content">
+                    <div className="img">
+                        <img src="/img/cont/cont-con3.png" alt="상담 및 컨설팅, 기획 및 계획 수립, 촬영 및 디렉팅, 후반 작업, 최종 검수 및 납품" />
+                    </div>
+                </div>
+            </div>
+
+             <div className="cont_con cont_con4"  ref={sectionRefs0[3]}>
+                <div className="title">
+                    <strong>기획부터 촬영, 제작, 납품까지 한번에 <br />
+                    <span>합리적인 제작 비용</span></strong>
+                </div>
+                <div className="content">
+                    <PriceCard
+                    title="자체콘텐츠 개발용역"
+                    price="차시당 500,000원"
+                    priceDesc="(20차시 기준)"
+                    featuresTitle={`맞춤형 콘텐츠 기획`}
+                    featuresList={`  -전문가 제작 진행\n -기획부터 촬영, 편집까지 자체적으로 진행 \n -고객 맞춤 검수/수정 반영`}
+                    />
+                </div>
+            </div>
+
+             <div className="lms_con lms_con7">
+                <div className="wrap">
+                    <div className="content">
+                        <div onClick={() => navigate('/consult')}>
+                            <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                            서비스 요금 <ArrowRight size={30} />
+                        </div>
+                        <div onClick={() => navigate('/consult')}>
+                            <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                            견적 문의 <ArrowRight size={30} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+        )}
+
+        {/*2. 콘텐츠 임대 */}
+        {currentNav === 1 && (
+        <>
+         <div className="cont_con_nav">
+                <div className="title">
+                    <strong>동영상 제작</strong>
+                    <p>콘텐츠 제작에 특화된 전문성, 체계성을 바탕으로 고품질의 자체개발 콘텐츠를 제작해드립니다.</p>
+                </div>
+                <ul>
+                {["서비스 소개", "콘텐츠 소개", "도입 절차"].map(
+                    (label, index) => (
+                    <li
+                        key={index}
+                        className={currentIndex === index ? "on" : ""}
+                        onClick={() => scrollToSection(index)}
+                    >
+                        {label}
+                    </li>
+                    )
+                )}
+                </ul>
+            </div>
+
+            <div className="cont_con cont_con5"  ref={sectionRefs1[0]}>
+                <div className="wrap">
+                    <div className="title">
+                        <strong>
+                           HRDe Solution의 고품질 콘텐츠를 활용하여 <br />
+                            교육서비스를 <span>쉽고 편리하게!</span>
+                        </strong>
+                    </div>
+                    <div className="content">
+                        <div className="img">
+                            <img src="/img/cont/cont-con5-img.png" alt="HRDe Solution 고품질 콘텐츠" />
+                        </div>
+                        <ul>
+                            <li>
+                                <div className="img"><img src="/img/cont/cont-con5-icn1.png" alt="" /></div>
+                                <div className="txt">
+                                    콘텐츠 제작 비용 없이 <br />
+                                    저렴한 비용으로 콘텐츠 임대
+                                </div>
+                            </li>
+                            <li>
+                                <div className="img"><img src="/img/cont/cont-con5-icn2.png" alt="" /></div>
+                                <div className="txt">
+                                    콘텐츠를 쉽고 편리하게 <br />
+                                    과정으로 등록
+                                </div>
+                            </li>
+                            <li>
+                                <div className="img"><img src="/img/cont/cont-con5-icn3.png" alt="" /></div>
+                                <div className="txt">
+                                    100% HRDe Solution이 <br />
+                                    자체 제작한 콘텐츠를 운용
+                                </div>
+                            </li>
+                             <li>
+                                <div className="img"><img src="/img/cont/cont-con5-icn4.png" alt="" /></div>
+                                <div className="txt">
+                                  최신 콘텐텐츠 다수 포함<br />
+                                  주기적으로 업데이트 진행
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div className="cont_con cont_con6"  ref={sectionRefs1[1]}>
+                <div className="wrap">
+                    <div className="title">
+                        <strong>콘텐츠 소개</strong>
+                        <p>법정의무교육 콘텐츠부터 AI 교육 등 최신 트렌드에 맞는 마이크로러닝/숏폼 콘텐츠까지! <br />
+                            계속 업데이트 되는 콘텐츠를 전체 과정 리스트에서 확인하세요.</p>
+                    </div>
+                    <div className="content">
+                        <button>전체 과정 리스트 엑셀 다운로드 <ArrowRight size={30} /></button>
+                        <div className="nav-btn">
+                            <div className="prev">
+                                <CaretCircleLeft size={48} weight="thin" />
+                            </div>
+                            <div className="next">
+                                <CaretCircleRight size={48} weight="thin" />
+                            </div>
+                        </div>
+                        <div className="lec-slide">
+                            <div>
+                                <div className="img"><img src="/img/cont/lec1.png" alt="반도체, 뭐가 그리 특별하죠?" /></div>
+                                <div className="txt">직무 역량</div>
+                            </div>
+                            <div>
+                                <div className="img"><img src="/img/cont/lec2.png" alt="팀워크, 말에서 시작된다" /></div>
+                                <div className="txt">리더십</div>
+                            </div>
+                            <div>
+                                <div className="img"><img src="/img/cont/lec3.png" alt="AI 레이싱 경기" /></div>
+                                <div className="txt">공통 역량</div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="cont_con cont_con7"  ref={sectionRefs1[2]}>
+                <div className="wrap">
+                    <div className="title">
+                        <strong>콘텐츠 <span>임대 절차</span></strong>
+                    </div>
+                     <div className="content">
+                        <div className="img">
+                            <img src="/img/cont/cont-con7.png" alt="필요컨텐츠 확인, 상담 신청 및 계약, 포팅, 과정 등록, 서비스 시작" />
+                        </div>
+                         <div className="qna">
+                            <div className="q" onClick={toggleAnswer}>
+                                <span>Q.</span> HRDe Solution 콘텐츠 임대 서비스 이용 계약 방법
+                                {isOpen ? (
+                                <CaretUp size={20} weight="bold" />
+                                ) : (
+                                <CaretDown size={20} weight="bold" />
+                                )}
+                            </div>
+                            <div className={`a ${isOpen ? "open" : ""}`}>
+                                <span>A.</span> 1. 구독제 계약 : 특정 비용을 지불하고 일정기간동안 임대가 가능한 형태 <br />
+                                2. 수익분배 계약 : 콘텐츠 사용에 따른 수익을 공유하는 형태
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <div className="lms_con lms_con7">
+                <div className="wrap">
+                    <div className="content">
+                        <div onClick={() => navigate('/consult')}>
+                            <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                            서비스 요금 <ArrowRight size={30} />
+                        </div>
+                        <div onClick={() => navigate('/consult')}>
+                            <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                            견적 문의 <ArrowRight size={30} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+        )}
+
         </>
     );
 }
