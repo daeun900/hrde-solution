@@ -61,7 +61,7 @@
       width: 127px;
       height: 36px;
       background-color: transparent;
-      background-image: url(../../public/img/main-banner.png);
+      background-image: url(../../public/img/main/main-banner.png);
       position: absolute;
       left: 50%;
       margin-left: -63px;
@@ -175,7 +175,7 @@
     gap: 15px;
     li {
       .top {
-        background-image: url(../../public/img/main-con3-back1.png);
+        background-image: url(../../public/img/main/main-con3-back1.png);
         background-size: cover;
         height: 216px;
         padding: 30px;
@@ -195,12 +195,12 @@
     }
     li:nth-child(2) {
       .top {
-        background-image: url(../../public/img/main-con3-back2.png);
+        background-image: url(../../public/img/main/main-con3-back2.png);
       }
     }
     li:nth-child(3) {
       .top {
-        background-image: url(../../public/img/main-con3-back3.png);
+        background-image: url(../../public/img/main/main-con3-back3.png);
       }
     }
   }
