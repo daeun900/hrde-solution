@@ -12,22 +12,21 @@ function Contents() {
     const imgRefs = useRef([]);
     const txtRef = useRef(null);
 
-    useEffect(() => {
-    if (imgRefs.current.length) {
+  useEffect(() => {
+  if (txtRef.current && imgRefs.current.every(el => el)) {
+    txtRef.current.classList.add("on");
 
-        txtRef.current.classList.add("on");
+    setTimeout(() => {
+      imgRefs.current[1].classList.add("on");
+    }, 300);
 
-        setTimeout(() => {
-            imgRefs.current[1].classList.add("on");
-           
-        }, 300); 
+    setTimeout(() => {
+      imgRefs.current[0].classList.add("on");
+      imgRefs.current[2].classList.add("on");
+    }, 600);
+  }
+}, []);
 
-        setTimeout(() => {
-            imgRefs.current[0].classList.add("on");
-             imgRefs.current[2].classList.add("on");
-        }, 600);
-        }
-    }, []);
 
     //배너 네비게이션
     const location = useLocation();
