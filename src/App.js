@@ -9,6 +9,8 @@ import LMS from './pages/LMS';
 import Contents from './pages/Contents';
 import Consulting from './pages/Consulting';
 import Consult from './pages/Consult';
+import News from './pages/News';
+import NewsDetail from './pages/NewsDetail';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Route path="/contents" element={<Contents/>} />  
       <Route path="/consulting" element={<Consulting/>} />  
       <Route path="/consult" element={<Consult/>} />  
+      <Route path="/news" element={<News/>} />  
+      <Route path="/newsdetail" element={<NewsDetail/>} />  
     </Routes>
     <Footer />  
   </Router>

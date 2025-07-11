@@ -297,7 +297,7 @@ function Home() {
               <div className="txt">HRDe솔루션 임직원 법정의무교육 수강</div>
             </div>
           </div>
-          <button className="more">더보기 +</button>
+          <button className="more" onClick={() => navigate('/news')}>더보기 +</button>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ function Header() {
   const location = useLocation();
 
   const transparentRoutes = ['/', '/consult', '/lms', '/contents'];
-  const blackRoutes = ['/lms', '/contents', '/consulting'];
+  const blackRoutes = ['/lms', '/contents', '/consulting', '/newsdetail'];
 
   const isTransparentRoute = transparentRoutes.some(route => location.pathname.startsWith(route));
   const isBlackRoute = blackRoutes.some(route => location.pathname.startsWith(route));
