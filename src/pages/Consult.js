@@ -47,7 +47,7 @@ function Consult() {
                 </div>
              </div>
 
-            <div className="input_wrap">
+            <div className="input_wrap input_wrap2">
                 <label>서비스</label>
                 <div className="checkbox_group">
                     <label><input type="checkbox" name="inquiry_type" value="lms" /> HRDe LMS 임대</label>
@@ -57,14 +57,14 @@ function Consult() {
                 </div>
             </div>
    
-            <div className="input_wrap">
+            <div className="input_wrap input_wrap2">
                 <label htmlFor="inquiry_content">문의 내용</label>
                 <textarea name="inquiry_content" id="inquiry_content" rows="8" placeholder="내용을 입력하세요."></textarea>
             </div>
    
-          <div className="input_wrap">
+          <div className="input_wrap input_wrap2">
             <label>유입경로</label>
-            <div className="checkbox_group">
+            <div className="checkbox_group checkbox_group2">
               <label><input type="checkbox" name="referral_source" value="website" /> 검색</label>
               <label><input type="checkbox" name="referral_source" value="ad" /> 광고</label>
               <label><input  type="checkbox" name="referral_source"value="recommend"/> 지인 추천</label>

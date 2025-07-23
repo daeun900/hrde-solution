@@ -295,7 +295,7 @@ function Contents() {
                              <li>
                                 <div className="img"><img src="/img/cont/cont-con5-icn4.png" alt="" /></div>
                                 <div className="txt">
-                                  최신 콘텐텐츠 다수 포함<br />
+                                  최신 콘텐츠 다수 포함<br />
                                   주기적으로 업데이트 진행
                                 </div>
                             </li>
