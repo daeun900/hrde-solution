@@ -6,79 +6,6 @@ import { CaretCircleLeft, CaretCircleRight, ArrowRight } from "@phosphor-icons/r
 import PriceCard from "../components/PriceCard";
 import FooterConsult from '../components/FooterConsult';
 
-const con5Data = [
-{
-    title: "회원관리",
-    desc: "회원 불류와 그룹 기능을 이용하여 체계적이고 간편하게 회원을 관리할 수 있습니다. 또한 메일 템플릿과 SMS발송 기능을 지원하여 효과적인 회원 관리가 가능합니다.",
-    img: "/img/lms/lms-con5-1.png",
-    expl: [
-    { title: "회원 / 관리자", content: "접속 이력과 현황을 확인할 수 있으며, 관리자의 운영 권한 부여 가능" },
-    { title: "강사권한 부여", content: "강사권한 부여를 통해 별도 교강사 페이지 제공으로 수강생 관리 가능" },
-    { title: "회원 소속 / 그룹 관리", content: "회원을 소속 / 그룹핑하여 할인을 물론 그룹별 게시판 운영 가능" },
-    { title: "학습독려 관리", content: "진도율과 시험, 과제 제출 등 이메일, SMS를 통한 학습 독려 기능 제공" },
-    ],
-},
-{
-    title: "콘텐츠 관리",
-    desc: "동영상 플랫폼과 연동하여 보유하신 콘텐츠를 손쉽게 강의를 동록할 수 있습니다. 등록하신 강의 라이브러리는 운영하시는 다양한 과정에서 사용할 수 있습니다.",
-    img: "/img/lms/lms-con5-2.png",
-    expl: [
-    { title: "콘텐츠 관리", content: "그룹별 강의 관리가 가능하며, MP4, 외부링크 등 다양한 콘텐츠를 한번에 등록하고 관리" },
-    { title: "토론 관리", content: "과정별 토론 주제 관리" },
-    { title: "시험 관리", content: "심사 기준에 맞춰 문제 은행 등록" },
-    ],
-},
-{
-    title: "수강 관리",
-    desc: "온라인 교육에 최적의 관리 기능을 제공합니다. 수강 대상, 복습관리, 평가 정보 등 과정 세부 정보를 설정하여 다양한 유형의 과정을 효과적으로 운영하실 수 있습니다.",
-    img: "/img/lms/lms-con5-3.png",
-    expl: [
-    { title: "IP 모니터링", content: "학습자 IP모니터링을 통해 부정훈련 방지" },
-    { title: "통합 수강생 관리", content: "과정별 전체 수강생의 수강과정, 수료여부 등 확인" },
-    { title: "결제관리", content: "수강생의 결제 여부 등 확인" }
-    ],
-},
-{
-    title: "독려 관리",
-    desc: "수강생들의 수강현황을 조회하고 독려를 통해 수료율을 향상시킬 수 있습니다.",
-    img: "/img/lms/lms-con5-4.png",
-    expl: [
-    { title: "독려메시지 발송", content: "미수강자나 진도 미달 학습자에게 독려메시지를 발송하여 수료율을 높일 수 있습니다." },
-    { title: "대상자별 상태 추적", content: "진도율, 수강현황을 기준으로 학습상태를 분석하고, 독려대상자를 확인할 수 있습니다." },
-    { title: "템플릿 관리", content: "독려메시지의 내용을 수정하고 생성할 수 있습니다." }
-    ],
-},
-{
-    title: "커뮤니티 관리",
-    desc: "공지사항과 수강생들의 문의를 관리하고 학습자료실 업로드가 가능합니다.",
-    img: "/img/lms/lms-con5-5.png",
-    expl: [
-    { title: "공지사항 관리", content: "수강생에게 중요한 교육 일정 시스템 안내 등을 공지사항으로 전달 가능" },
-    { title: "문의 대응", content: "학습자와 관리자 간 개별 상담이 가능한 문의 기능 제공" },
-    { title: "학습자료실 운영", content: "강의자료, 참고자료 등을 업로드하여 학습자에게 공유 가능" }
-    ],
-},
-{
-    title: "통계 관리",
-    desc: "모든 사항을 파악할 수 있는 통계 그래프로, 다양한 통계를 통해 수강생의 접속 현황과 매출을 확인하실 수 있습니다.",
-    img: "/img/lms/lms-con5-6.png",
-    expl: [
-    { title: "접속 통계 관리", content: "수강생들의 접속현황 확인 가능" },
-    { title: "영업 통계 관리", content: "영업자별 매출 및 예상 수당 확인 가능" },
-    ],
-},
-{
-    title: "사이트 관리",
-    desc: "팝업과 사이트 정보를 체계적으로 관리하고, 작업 요청 게시판을 활용하여 유지보수를 요청할 수 있습니다.",
-    img: "/img/lms/lms-con5-7.png",
-    expl: [
-    { title: "팝업 관리", content: "팝업 혹은 배너의 디자인 관리" },
-    { title: "작업요청 게시판", content: "기능개선 혹은 유지보수 요청" },
-    { title: "사이트 정보 관리", content: "사이트의 기본 정보 관리" }
-    ],
-},
-];
-
 function LMS() {   
     const navigate = useNavigate();
 
@@ -124,6 +51,15 @@ function LMS() {
 
     //pricecard
     const [activeTab, setActiveTab] = useState(0);
+
+    //반응형 텍스트
+     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     return (
         <>
         <div className="lms_banner">
@@ -159,7 +95,7 @@ function LMS() {
                     HRDe LMS
                 </li>
                 <li className={currentNav === 1 ? 'on' : ''} onClick={() => setCurrentNav(1)}>
-                    HRDe 아카이브
+                   {isMobile ? <>HRDe<br />아카이브</> : 'HRDe 아카이브'}
                 </li>
                 <li className={currentNav === 2 ? 'on' : ''} onClick={() => setCurrentNav(2)}>
                     데모 체험
@@ -279,7 +215,9 @@ function LMS() {
             <div className="wrap">
                 <div className="title">
                     <strong>
-                        원격훈련(환급)과정<span>인정 요건 설비 및 장비</span>
+                    {isMobile ? <>원격훈련과정</> : '원격훈련(환급)과정'}
+                    <span> 인정 요건 설비 및 장비</span>
+
                     </strong>
                 <p>원격훈련 기준응 상회하는 HRDe솔루션의 서버 구성으로 동시시청 5,000명은 물론 실시간 스트리밍도 가능합니다.</p>
                 </div>
@@ -365,7 +303,7 @@ function LMS() {
                     HRDe LMS 구축 프로세스
                     </strong>
                     <p>
-                        <span style={{ color: "#0576FB" }}>신규 설치   ❘   </span>계약일로부터 약 2주 소요    {'\u00A0\u00A0\u00A0\u00A0\u00A0'}
+                        <span style={{ color: "#0576FB" }}>신규 설치   ❘   </span>계약일로부터 약 2주 소요 {isMobile ? <><br /></> : '\u00A0\u00A0\u00A0\u00A0\u00A0'} 
                         <span style={{ color: "#0576FB" }}>이전 설치   ❘  </span>계약일로부터 약 4주 소요
                     </p>
                 </div>
@@ -423,7 +361,9 @@ function LMS() {
         <div className="lms_con lms_con7">
             <div className="wrap">
                 <div className="title">
-                    <strong> 타 솔루션과 차별화된 플랫폼 <span>HRDe LMS</span> </strong>
+                    <strong>
+                          {isMobile ? <>타 솔루션과 차별화된 플랫폼<br /></> : '타 솔루션과 차별화된 플랫폼 '}
+                           <span>HRDe LMS</span> </strong>
                     <p>타 솔루션과는 차원이 다른 스마트한 직업훈련 플랫폼입니다. </p>
                 </div>
                 <div className="content">
@@ -521,7 +461,7 @@ function LMS() {
                     <div className="icn"><img src="/img/lms/lms-con9-icn1.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>수강시간 합산 표시</strong>
-                        <p>FLEX에서 시청한 모든 콘텐츠의 총 수강 시간을 합산하여 표시</p>
+                        <p>HRDe 아카이브에서 시청한 모든 콘텐츠의 총 수강 시간을 합산하여 표시</p>
                     </div>
                 </div>
                 <div>
@@ -616,7 +556,7 @@ function LMS() {
                 HRDe LMS 구축 프로세스
                 </strong>
                 <p>
-                    <span style={{ color: "#0576FB" }}>신규 설치   ❘   </span>계약일로부터 약 2주 소요    {'\u00A0\u00A0\u00A0\u00A0\u00A0'}
+                    <span style={{ color: "#0576FB" }}>신규 설치   ❘   </span>계약일로부터 약 2주 소요 {isMobile ? <><br /></> : '\u00A0\u00A0\u00A0\u00A0\u00A0'} 
                     <span style={{ color: "#0576FB" }}>이전 설치   ❘  </span>계약일로부터 약 4주 소요
                 </p>
             </div>
@@ -823,7 +763,7 @@ function LMS() {
                         <div className="img"><img src="/img/lms/lms-con12-2.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>반응형 템플릿</strong>
-                            <p>반응형형으로 다양한 기기에서 <br />
+                            <p>반응형으로 다양한 기기에서 <br />
                             학습 가능한 최신 트렌드의 <br />
                             깔끔한 템플릿을 기본 제공</p>
                         </div>
@@ -876,5 +816,77 @@ function LMS() {
     );
 }
 
+const con5Data = [
+{
+    title: "회원관리",
+    desc: "회원 분류와 그룹 기능을 이용하여 체계적이고 간편하게 회원을 관리할 수 있습니다. 또한 메일 템플릿과 SMS발송 기능을 지원하여 효과적인 회원 관리가 가능합니다.",
+    img: "/img/lms/lms-con5-1.png",
+    expl: [
+    { title: "회원 / 관리자", content: "접속 이력과 현황을 확인할 수 있으며, 관리자의 운영 권한 부여 가능" },
+    { title: "강사권한 부여", content: "강사권한 부여를 통해 별도 교강사 페이지 제공으로 수강생 관리 가능" },
+    { title: "회원 소속 / 그룹 관리", content: "회원을 소속 / 그룹핑하여 할인을 물론 그룹별 게시판 운영 가능" },
+    { title: "학습독려 관리", content: "진도율과 시험, 과제 제출 등 이메일, SMS를 통한 학습 독려 기능 제공" },
+    ],
+},
+{
+    title: "콘텐츠 관리",
+    desc: "동영상 플랫폼과 연동하여 보유하신 콘텐츠를 손쉽게 강의를 동록할 수 있습니다. 등록하신 강의 라이브러리는 운영하시는 다양한 과정에서 사용할 수 있습니다.",
+    img: "/img/lms/lms-con5-2.png",
+    expl: [
+    { title: "콘텐츠 관리", content: "그룹별 강의 관리가 가능하며, MP4, 외부링크 등 다양한 콘텐츠를 한번에 등록하고 관리" },
+    { title: "토론 관리", content: "과정별 토론 주제 관리" },
+    { title: "시험 관리", content: "심사 기준에 맞춰 문제 은행 등록" },
+    ],
+},
+{
+    title: "수강 관리",
+    desc: "온라인 교육에 최적의 관리 기능을 제공합니다. 수강 대상, 복습관리, 평가 정보 등 과정 세부 정보를 설정하여 다양한 유형의 과정을 효과적으로 운영하실 수 있습니다.",
+    img: "/img/lms/lms-con5-3.png",
+    expl: [
+    { title: "IP 모니터링", content: "학습자 IP모니터링을 통해 부정훈련 방지" },
+    { title: "통합 수강생 관리", content: "과정별 전체 수강생의 수강과정, 수료여부 등 확인" },
+    { title: "결제관리", content: "수강생의 결제 여부 등 확인" }
+    ],
+},
+{
+    title: "독려 관리",
+    desc: "수강생들의 수강현황을 조회하고 독려를 통해 수료율을 향상시킬 수 있습니다.",
+    img: "/img/lms/lms-con5-4.png",
+    expl: [
+    { title: "독려메시지 발송", content: "미수강자나 진도 미달 학습자에게 독려 메시지를 발송 가능" },
+    { title: "대상자별 상태 추적", content: "진도율, 수강현황을 기준으로 학습상태를 분석하고, 독려대상자를 확인 가능" },
+    { title: "템플릿 관리", content: "독려메시지의 내용을 수정하고 생성 가능" }
+    ],
+},
+{
+    title: "커뮤니티 관리",
+    desc: "공지사항과 수강생들의 문의를 관리하고 학습자료실 업로드가 가능합니다.",
+    img: "/img/lms/lms-con5-5.png",
+    expl: [
+    { title: "공지사항 관리", content: "수강생에게 중요한 교육 일정 시스템 안내 등을 공지사항으로 전달 가능" },
+    { title: "문의 대응", content: "학습자와 관리자 간 개별 상담이 가능한 문의 기능 제공" },
+    { title: "학습자료실 운영", content: "강의자료, 참고자료 등을 업로드하여 학습자에게 공유 가능" }
+    ],
+},
+{
+    title: "통계 관리",
+    desc: "모든 사항을 파악할 수 있는 통계 그래프로, 다양한 통계를 통해 수강생의 접속 현황과 매출을 확인하실 수 있습니다.",
+    img: "/img/lms/lms-con5-6.png",
+    expl: [
+    { title: "접속 통계 관리", content: "수강생들의 접속현황 확인 가능" },
+    { title: "영업 통계 관리", content: "영업자별 매출 및 예상 수당 확인 가능" },
+    ],
+},
+{
+    title: "사이트 관리",
+    desc: "팝업과 사이트 정보를 체계적으로 관리하고, 작업 요청 게시판을 활용하여 유지보수를 요청할 수 있습니다.",
+    img: "/img/lms/lms-con5-7.png",
+    expl: [
+    { title: "팝업 관리", content: "팝업 혹은 배너의 디자인 관리" },
+    { title: "작업요청 게시판", content: "기능개선 혹은 유지보수 요청" },
+    { title: "사이트 정보 관리", content: "사이트의 기본 정보 관리" }
+    ],
+},
+];
 
 export default LMS;

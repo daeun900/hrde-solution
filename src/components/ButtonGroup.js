@@ -6,6 +6,10 @@ const BtnWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+     @media(max-width:768px){
+      grid-template-columns:1fr;
+    }
+
 `;
 
 const StyledButton = styled.button`
@@ -28,6 +32,9 @@ const StyledButton = styled.button`
     background-color: rgba(255, 255, 255, 0.6);
     color: #0057ff;
   }
+      @media (max-width: 768px) {
+        height: 80px;
+    }   
 `;
 
 const Txt = styled.div`
@@ -39,6 +46,10 @@ const Txt = styled.div`
     font-size: 20px;
     line-height: 30px;
     font-weight: 500;
+         @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 25px;
+    }
   }
 `;
 

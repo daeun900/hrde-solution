@@ -4,15 +4,23 @@
   background: url(../../public/img/consult/consult_bg.png);
   background-color: #aab1c4;
   background-size: contain;
-   animation: bgUp 1s ease-out forwards;
-   @keyframes bgUp {
-  0% {
-    background-position: center bottom  -100px; 
+  background-repeat: no-repeat;
+  animation: bgUp 1s ease-out forwards;
+  @media (max-width: 768px) {
+    background: none;
+    background-color: #aab1c4;
+    padding: 100px 0 50px 0;
+    height: unset;
   }
-  100% {
-    background-position: center bottom; 
+
+  @keyframes bgUp {
+    0% {
+      background-position: center bottom -100px;
+    }
+    100% {
+      background-position: center bottom;
+    }
   }
-}
   .wrap {
     width: 100%;
     height: 100%;
@@ -27,6 +35,10 @@
       display: block;
       margin-bottom: 20px;
       font-weight: 600;
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 50px;
+      }
     }
     p {
       font-size: 24px;
@@ -34,6 +46,10 @@
       font-weight: 200;
       display: block;
       margin-bottom: 20px;
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 30px;
+      }
     }
     button {
       position: relative;
@@ -49,6 +65,9 @@
       background-color: transparent;
       border-radius: 100px;
       overflow: hidden;
+      @media (max-width: 768px) {
+        padding: 10px 20px;
+      }
     }
 
     button::before {
@@ -92,24 +111,43 @@
 
 .consult_form {
   margin: 100px 0;
+  @media (max-width: 768px) {
+    margin: 30px 0;
+  }
   .wrap {
     > div {
       padding: 10px 0;
       border-bottom: 1px solid #e0e0e0;
+      @media (max-width: 768px) {
+        border-bottom: none;
+        padding: 0px;
+      }
     }
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 0px;
+      }
     }
   }
   .input_wrap {
     width: 100%;
     display: flex;
     align-items: center;
+    @media (max-width: 768px) {
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
     label {
       width: 100px;
       font-weight: bold;
+      flex-shrink: 0;
+      @media (max-width: 768px) {
+        width: 80px;
+      }
       i {
         color: red;
       }
@@ -126,12 +164,24 @@
     }
   }
 
+  .input_wrap2{
+      @media (max-width: 768px) {
+      padding: 10px 0 !important;
+      border-bottom: 1px solid #e0e0e0 !important;
+    }
+  }
+
   .checkbox_group {
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: flex-start;
     margin: 10px 0;
+    @media (max-width: 768px) {
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
     label {
       display: flex;
       align-items: center;
@@ -141,6 +191,11 @@
     }
   }
 
+  .checkbox_group2{
+        @media (max-width: 768px) {
+      flex-direction: row;
+    }
+  }
   textarea {
     width: 100%;
     border: 1px solid #e0e0e0;
@@ -157,22 +212,25 @@
     justify-content: center;
     gap: 20px;
     border: none !important;
+        @media (max-width: 768px) {
+          gap: 7px;
+    }   
     label {
       display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 400;
       width: fit-content;
-      color:#696969;
+      color: #696969;
     }
-   .more{
-        color: #8E8E8E;
-        font-size: 14px;
-        text-decoration: underline;
+    .more {
+      color: #8e8e8e;
+      font-size: 14px;
+      text-decoration: underline;
     }
   }
 
-  button{
+  button {
     width: 166px;
     height: 46px;
     display: flex;
@@ -181,14 +239,16 @@
     border: 1px solid #000;
     border-radius: 50px;
     background-color: transparent;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     margin: 0 auto;
+        @media (max-width: 768px) {
+          height: 40px;
+    }   
   }
-  button:hover{
+  button:hover {
     background-color: #487ff2;
     color: #fff;
     font-weight: 600;
     border: 1px solid #487ff2;
-
   }
 }
