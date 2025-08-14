@@ -21,7 +21,7 @@ function NewsDetail() {
                   <p>
                     HRDe솔류션의 사업주훈련과 내일배움카드,  HRD FLEX까지 포함된 신규 LMS가 개발이 완료됐습니다.
                   </p>
-                  <img src="/img/news-detail.png" alt="" />
+                  <img src="img/news-detail.png" alt="" />
             </div>
             <div className="news-nav">
                 <div className="prev">

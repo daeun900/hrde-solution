@@ -18,13 +18,13 @@ function Home() {
   return (
     <>
       <div className="video_box">
-        <video autoPlay loop muted className="background-video">
-          <source src="/video/main_bg.mp4" type="video/mp4" />
+        <video autoPlay loop muted  playsInline className="background-video">
+          <source src="video/main_bg.mp4" type="video/mp4" />
         </video>
         <div className="wrap">
           <div className="bottom_banner">
             <div className="txt">
-              <img src="/img/main/main-banner-icn1.png" alt="아이콘" />
+              <img src="img/main/main-banner-icn1.png" alt="아이콘" />
               <p>상담문의</p>
             </div>
             <div className="form">
@@ -33,7 +33,7 @@ function Home() {
               <button onClick={() => navigate('/consult')}>상담신청</button>
             </div>
             <div className="txt">
-              <img src="/img/main/main-banner-icn2.png" alt="아이콘" />
+              <img src="img/main/main-banner-icn2.png" alt="아이콘" />
               <p>1811-9530</p>
             </div>
             <button onClick={scrollToContent} className="banner-label" />
@@ -44,13 +44,13 @@ function Home() {
         <div className="wrap">
           <div className="top">
             <div onClick={() => navigate('/lms?tab=2')}>
-              <img src="/img/main/main-con1-icn1.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn1.png" alt="아이콘" />
               <p>
                 데모 체험 바로가기 <ArrowRight size={20} weight="bold" />
               </p>
             </div>
             <div onClick={() => navigate('/lms?tab=4')}>
-              <img src="/img/main/main-con1-icn2.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn2.png" alt="아이콘" />
               <p>
                 브로슈어 바로가기 <ArrowRight size={20} weight="bold" />
               </p>
@@ -58,7 +58,7 @@ function Home() {
           </div>
           <div className="bottom">
             <div>
-              <img src="/img/main/main-con1-icn3.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn3.png" alt="아이콘" />
               <div className="txt">
                 <b>HRDe LMS</b>
                 <p>
@@ -68,7 +68,7 @@ function Home() {
               </div>
             </div>
             <div>
-              <img src="/img/main/main-con1-icn4.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn4.png" alt="아이콘" />
               <div className="txt">
                 <b>HRDe 아카이브</b>
                 <p>
@@ -78,7 +78,7 @@ function Home() {
               </div>
             </div>
             <div>
-              <img src="/img/main/main-con1-icn5.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn5.png" alt="아이콘" />
               <div className="txt">
                 <b>자체콘텐츠 탑재</b>
                 <p>
@@ -88,7 +88,7 @@ function Home() {
               </div>
             </div>
             <div>
-              <img src="/img/main/main-con1-icn6.png" alt="아이콘" />
+              <img src="img/main/main-con1-icn6.png" alt="아이콘" />
               <div className="txt">
                 <b>콘텐츠 구독</b>
                 <p>
@@ -108,23 +108,23 @@ function Home() {
           <ul>
             <li>
               <p>국내 최고의 부정훈련방지 IP모니터링시스템</p>
-              <img src="/img/main/main-con2-icn1.png" alt="아이콘" />
+              <img src="img/main/main-con2-icn1.png" alt="아이콘" />
             </li>
             <li>
               <p>최신 디자인의 홈페이지 제공</p>
-              <img src="/img/main/main-con2-icn2.png" alt="아이콘" />
+              <img src="img/main/main-con2-icn2.png" alt="아이콘" />
             </li>
             <li>
               <p>고품질의 자제콘텐츠 제작 및 임대</p>
-              <img src="/img/main/main-con2-icn3.png" alt="아이콘" />
+              <img src="img/main/main-con2-icn3.png" alt="아이콘" />
             </li>
             <li>
               <p>쌍방향 아카이브 플랫폼등 다양한 플랫폼 연동</p>
-              <img src="/img/main/main-con2-icn4.png" alt="아이콘" />
+              <img src="img/main/main-con2-icn4.png" alt="아이콘" />
             </li>
             <li>
               <p>신속한 응대 고객센터 운영</p>
-              <img src="/img/main/main-con2-icn5.png" alt="아이콘" />
+              <img src="img/main/main-con2-icn5.png" alt="아이콘" />
             </li>
           </ul>
         </div>
@@ -280,19 +280,19 @@ function Home() {
           <div className="con">
             <div className="news">
               <div className="img">
-                <img src="/img/news1.png" alt="뉴스 예시" />
+                <img src="img/news1.png" alt="뉴스 예시" />
               </div>
               <div className="txt">HRDe솔루션 원격훈련기관 간담회</div>
             </div>
             <div className="news">
               <div className="img">
-                <img src="/img/news2.png" alt="뉴스 예시" />
+                <img src="img/news2.png" alt="뉴스 예시" />
               </div>
               <div className="txt">HRDe솔루션 임직원 2023년 송년회</div>
             </div>
             <div className="news">
               <div className="img">
-                <img src="/img/news3.png" alt="뉴스 예시" />
+                <img src="img/news3.png" alt="뉴스 예시" />
               </div>
               <div className="txt">HRDe솔루션 임직원 법정의무교육 수강</div>
             </div>

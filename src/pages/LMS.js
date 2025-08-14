@@ -76,10 +76,10 @@ function LMS() {
                 </div>
                 <div className="img">
                     {[
-                        { src: "/img/lms/lms-banner-icn1.png", alt: "사람 아이콘" },
-                        { src: "/img/lms/lms-banner-icn2.png", alt: "노트북 아이콘" },
-                        { src: "/img/lms/lms-banner-icn3.png", alt: "구름 아이콘" },
-                        { src: "/img/lms/lms-banner-icn4.png", alt: "이메일 아이콘" },
+                        { src: "img/lms/lms-banner-icn1.png", alt: "사람 아이콘" },
+                        { src: "img/lms/lms-banner-icn2.png", alt: "노트북 아이콘" },
+                        { src: "img/lms/lms-banner-icn3.png", alt: "구름 아이콘" },
+                        { src: "img/lms/lms-banner-icn4.png", alt: "이메일 아이콘" },
                     ].map((img, i) => (
                         <img
                         key={i}
@@ -178,7 +178,7 @@ function LMS() {
                         </ol>
                     </div>
                     <div className="right">
-                        <img src="/img/lms/lms-con2.png" alt="한국산업인력공단 소명자료 검토 결과과" />
+                        <img src="img/lms/lms-con2.png" alt="한국산업인력공단 소명자료 검토 결과과" />
                     </div>
                 </div>
             </div>
@@ -194,14 +194,14 @@ function LMS() {
                 </div>
                 <div className="content">
                     <div>
-                        <div className="img"><img src="/img/lms/lms-con3-bg1.png" alt="" /></div>
+                        <div className="img"><img src="img/lms/lms-con3-bg1.png" alt="" /></div>
                         <div className="txt">
                             사업주 훈련 [고용보험환급과정], [국민내일배움카드]의 <br />
                             모든 기능을 충족하는 원격훈련에 특화된 솔루션입니다.
                         </div>
                     </div>
                         <div>
-                        <div className="img"><img src="/img/lms/lms-con3-bg2.png" alt="" /></div>
+                        <div className="img"><img src="img/lms/lms-con3-bg2.png" alt="" /></div>
                         <div className="txt">
                             훈련생 모듈, 관리자 모듈, 교강사 모듈 등 <br />
                             원격훈련 운영에 최적화된 솔루션입니다.
@@ -222,7 +222,7 @@ function LMS() {
                 <p>원격훈련 기준응 상회하는 HRDe솔루션의 서버 구성으로 동시시청 5,000명은 물론 실시간 스트리밍도 가능합니다.</p>
                 </div>
                 <div className="content">
-                    <img src="/img/lms/lms-con4.png" alt="CLOUD-방화벽-L4-WEB,VOD,DB,Backup" />
+                    <img src="img/lms/lms-con4.png" alt="CLOUD-방화벽-L4-WEB,VOD,DB,Backup" />
                 </div>
             </div>
         </div>
@@ -241,8 +241,8 @@ function LMS() {
                 {con5Data.map((item, idx) => {
                     const isActive = currentIndex === idx;
                     const iconFile = isActive
-                    ? `/img/lms/lms-con5-${idx + 1}-icnw.png`
-                    : `/img/lms/lms-con5-${idx + 1}-icn.png`;
+                    ? `img/lms/lms-con5-${idx + 1}-icnw.png`
+                    : `img/lms/lms-con5-${idx + 1}-icn.png`;
 
                     return (
                     <li
@@ -368,11 +368,11 @@ function LMS() {
                 </div>
                 <div className="content">
                     <div onClick={() => navigate('/consult')}>
-                        <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                        <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                         서비스 요금 <ArrowRight size={30} />
                     </div>
                     <div onClick={() => navigate('/consult')}>
-                        <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                        <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                         견적 문의 <ArrowRight size={30} />
                     </div>
                 </div>
@@ -395,7 +395,7 @@ function LMS() {
             <div className="content">
                 <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-1.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-1.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>시스템 안정성</strong>
@@ -404,7 +404,7 @@ function LMS() {
                 </div>
                  <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-2.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-2.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>맞춤형 콘텐츠 큐레이션</strong>
@@ -413,7 +413,7 @@ function LMS() {
                 </div>
                  <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-3.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-3.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>합리적인 서비스이용</strong>
@@ -422,7 +422,7 @@ function LMS() {
                 </div>
                  <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-4.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-4.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>서비스 확장성</strong>
@@ -431,7 +431,7 @@ function LMS() {
                 </div>
                  <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-5.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-5.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>스마트한 수강</strong>
@@ -440,7 +440,7 @@ function LMS() {
                 </div>
                  <div>
                     <div className="img">      
-                        <img src="/img/lms/lms-con8-6.png" alt="아이콘" />
+                        <img src="img/lms/lms-con8-6.png" alt="아이콘" />
                     </div>
                     <div className="txt">
                         <strong>고객관리</strong>
@@ -458,35 +458,35 @@ function LMS() {
             </div>
             <div className="content">
                 <div>
-                    <div className="icn"><img src="/img/lms/lms-con9-icn1.png" alt="아이콘" /></div>
+                    <div className="icn"><img src="img/lms/lms-con9-icn1.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>수강시간 합산 표시</strong>
                         <p>HRDe 아카이브에서 시청한 모든 콘텐츠의 총 수강 시간을 합산하여 표시</p>
                     </div>
                 </div>
                 <div>
-                    <div className="icn"><img src="/img/lms/lms-con9-icn2.png" alt="아이콘" /></div>
+                    <div className="icn"><img src="img/lms/lms-con9-icn2.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>관심강의</strong>
                         <p>관심있는 강의를 찜한 뒤 나의학습실에서 확인 및 학습 가능</p>
                     </div>
                 </div>
                 <div>
-                    <div className="icn"><img src="/img/lms/lms-con9-icn3.png" alt="아이콘" /></div>
+                    <div className="icn"><img src="img/lms/lms-con9-icn3.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>콘텐츠 관리</strong>
                         <p>관리자 모듈을 통해 콘텐츠, 카테고리, 키워드, 큐레이션 등 모두 관리 가능</p>
                     </div>
                 </div>
                 <div>
-                    <div className="icn"><img src="/img/lms/lms-con9-icn4.png" alt="아이콘" /></div>
+                    <div className="icn"><img src="img/lms/lms-con9-icn4.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>커뮤니티 관리</strong>
                         <p>관리자 모듈을 통해 학습문의 내용을 확인하고, 문의자에게 문자 / 이메일 발송 가능</p>
                     </div>
                 </div>
                 <div>
-                    <div className="icn"><img src="/img/lms/lms-con9-icn5.png" alt="아이콘" /></div>
+                    <div className="icn"><img src="img/lms/lms-con9-icn5.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>콘텐츠 태그</strong>
                         <p>콘텐츠마다 태그를 표시해 학습자들이 원하는 강의를 더욱 쉽고 빠르게 찾을 수 있음</p>
@@ -507,7 +507,7 @@ function LMS() {
             <div className="content">
                 <div>
                     <div className="icn">
-                        <img src="/img/lms/lms-con10-icn1.png" alt="아이콘" />
+                        <img src="img/lms/lms-con10-icn1.png" alt="아이콘" />
                     </div>
                      <div className="txt">
                         <strong>회원 관리</strong>
@@ -517,7 +517,7 @@ function LMS() {
                 </div>
                   <div>
                     <div className="icn">
-                        <img src="/img/lms/lms-con10-icn2.png" alt="아이콘" />
+                        <img src="img/lms/lms-con10-icn2.png" alt="아이콘" />
                     </div>
                      <div className="txt">
                         <strong>콘텐츠 관리</strong>
@@ -527,7 +527,7 @@ function LMS() {
                 </div>
                   <div>
                     <div className="icn">
-                        <img src="/img/lms/lms-con10-icn3.png" alt="아이콘" />
+                        <img src="img/lms/lms-con10-icn3.png" alt="아이콘" />
                     </div>
                      <div className="txt">
                         <strong>운영 관리</strong>
@@ -537,7 +537,7 @@ function LMS() {
                 </div>
                   <div>
                     <div className="icn">
-                        <img src="/img/lms/lms-con10-icn4.png" alt="아이콘" />
+                        <img src="img/lms/lms-con10-icn4.png" alt="아이콘" />
                     </div>
                      <div className="txt">
                         <strong>게시판 관리</strong>
@@ -628,7 +628,7 @@ function LMS() {
         </div>
         <div className="content">
             <div className="img">
-                <img src="/img/lms/lms-con11-1.png" alt="랜딩사이트 이동" />
+                <img src="img/lms/lms-con11-1.png" alt="랜딩사이트 이동" />
             </div>
         </div>
     </div>
@@ -644,7 +644,7 @@ function LMS() {
         </div>
         <div className="content">
             <div className="img">
-                <img src="/img/lms/lms-con11-2.png" alt="LMS 사이트 이동" />
+                <img src="img/lms/lms-con11-2.png" alt="LMS 사이트 이동" />
             </div>
 
         </div>
@@ -660,7 +660,7 @@ function LMS() {
         </div>
         <div className="content">
             <div className="img">
-                 <img src="/img/lms/lms-con11-3.png" alt="아카이브 사이트 이동" />
+                 <img src="img/lms/lms-con11-3.png" alt="아카이브 사이트 이동" />
             </div>
      
         </div>
@@ -751,7 +751,7 @@ function LMS() {
             <div className="content">
                 <div className="grid grid1">
                     <div>
-                    <div className="img"><img src="/img/lms/lms-con12-1.png" alt="아이콘" /></div>
+                    <div className="img"><img src="img/lms/lms-con12-1.png" alt="아이콘" /></div>
                     <div className="txt">
                         <strong>디자인 플랫폼</strong>
                         <p>저작권 걱정없이 풍부한 템플릿과 <br />
@@ -760,7 +760,7 @@ function LMS() {
                     </div>
                     </div>
                     <div>
-                        <div className="img"><img src="/img/lms/lms-con12-2.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/lms/lms-con12-2.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>반응형 템플릿</strong>
                             <p>반응형으로 다양한 기기에서 <br />
@@ -771,7 +771,7 @@ function LMS() {
                 </div>
                <div className="grid grid2">
                     <div>
-                        <div className="img"><img src="/img/lms/lms-con12-3.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/lms/lms-con12-3.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>업데이트 지원</strong>
                             <p>기능 및 보안 패치 등 <br />
@@ -780,7 +780,7 @@ function LMS() {
                         </div>
                     </div>
                     <div>
-                        <div className="img"><img src="/img/lms/lms-con12-4.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/lms/lms-con12-4.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>SSL 인증서</strong>
                             <p>도메인 SSL 인증서 무료 제공으로 <br />
@@ -789,7 +789,7 @@ function LMS() {
                         </div>
                     </div>
                     <div>
-                        <div className="img"><img src="/img/lms/lms-con12-5.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/lms/lms-con12-5.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>관리자 계정수 무제한</strong>
                             <p>최고 관리자, 운영자, 소속 관리자,<br />
@@ -820,7 +820,7 @@ const con5Data = [
 {
     title: "회원관리",
     desc: "회원 분류와 그룹 기능을 이용하여 체계적이고 간편하게 회원을 관리할 수 있습니다. 또한 메일 템플릿과 SMS발송 기능을 지원하여 효과적인 회원 관리가 가능합니다.",
-    img: "/img/lms/lms-con5-1.png",
+    img: "img/lms/lms-con5-1.png",
     expl: [
     { title: "회원 / 관리자", content: "접속 이력과 현황을 확인할 수 있으며, 관리자의 운영 권한 부여 가능" },
     { title: "강사권한 부여", content: "강사권한 부여를 통해 별도 교강사 페이지 제공으로 수강생 관리 가능" },
@@ -831,7 +831,7 @@ const con5Data = [
 {
     title: "콘텐츠 관리",
     desc: "동영상 플랫폼과 연동하여 보유하신 콘텐츠를 손쉽게 강의를 동록할 수 있습니다. 등록하신 강의 라이브러리는 운영하시는 다양한 과정에서 사용할 수 있습니다.",
-    img: "/img/lms/lms-con5-2.png",
+    img: "img/lms/lms-con5-2.png",
     expl: [
     { title: "콘텐츠 관리", content: "그룹별 강의 관리가 가능하며, MP4, 외부링크 등 다양한 콘텐츠를 한번에 등록하고 관리" },
     { title: "토론 관리", content: "과정별 토론 주제 관리" },
@@ -841,7 +841,7 @@ const con5Data = [
 {
     title: "수강 관리",
     desc: "온라인 교육에 최적의 관리 기능을 제공합니다. 수강 대상, 복습관리, 평가 정보 등 과정 세부 정보를 설정하여 다양한 유형의 과정을 효과적으로 운영하실 수 있습니다.",
-    img: "/img/lms/lms-con5-3.png",
+    img: "img/lms/lms-con5-3.png",
     expl: [
     { title: "IP 모니터링", content: "학습자 IP모니터링을 통해 부정훈련 방지" },
     { title: "통합 수강생 관리", content: "과정별 전체 수강생의 수강과정, 수료여부 등 확인" },
@@ -851,7 +851,7 @@ const con5Data = [
 {
     title: "독려 관리",
     desc: "수강생들의 수강현황을 조회하고 독려를 통해 수료율을 향상시킬 수 있습니다.",
-    img: "/img/lms/lms-con5-4.png",
+    img: "img/lms/lms-con5-4.png",
     expl: [
     { title: "독려메시지 발송", content: "미수강자나 진도 미달 학습자에게 독려 메시지를 발송 가능" },
     { title: "대상자별 상태 추적", content: "진도율, 수강현황을 기준으로 학습상태를 분석하고, 독려대상자를 확인 가능" },
@@ -861,7 +861,7 @@ const con5Data = [
 {
     title: "커뮤니티 관리",
     desc: "공지사항과 수강생들의 문의를 관리하고 학습자료실 업로드가 가능합니다.",
-    img: "/img/lms/lms-con5-5.png",
+    img: "img/lms/lms-con5-5.png",
     expl: [
     { title: "공지사항 관리", content: "수강생에게 중요한 교육 일정 시스템 안내 등을 공지사항으로 전달 가능" },
     { title: "문의 대응", content: "학습자와 관리자 간 개별 상담이 가능한 문의 기능 제공" },
@@ -871,7 +871,7 @@ const con5Data = [
 {
     title: "통계 관리",
     desc: "모든 사항을 파악할 수 있는 통계 그래프로, 다양한 통계를 통해 수강생의 접속 현황과 매출을 확인하실 수 있습니다.",
-    img: "/img/lms/lms-con5-6.png",
+    img: "img/lms/lms-con5-6.png",
     expl: [
     { title: "접속 통계 관리", content: "수강생들의 접속현황 확인 가능" },
     { title: "영업 통계 관리", content: "영업자별 매출 및 예상 수당 확인 가능" },
@@ -880,7 +880,7 @@ const con5Data = [
 {
     title: "사이트 관리",
     desc: "팝업과 사이트 정보를 체계적으로 관리하고, 작업 요청 게시판을 활용하여 유지보수를 요청할 수 있습니다.",
-    img: "/img/lms/lms-con5-7.png",
+    img: "img/lms/lms-con5-7.png",
     expl: [
     { title: "팝업 관리", content: "팝업 혹은 배너의 디자인 관리" },
     { title: "작업요청 게시판", content: "기능개선 혹은 유지보수 요청" },

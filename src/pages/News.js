@@ -16,7 +16,7 @@ function News() {
                     제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 </div>
                 <div className="img">
-                    <img src="/img/news1.png" alt="" />
+                    <img src="img/news1.png" alt="" />
                 </div>
                 <div className="date">
                     2024.09.23
@@ -27,7 +27,7 @@ function News() {
                     제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 </div>
                 <div className="img">
-                    <img src="/img/news2.png" alt="" />
+                    <img src="img/news2.png" alt="" />
                 </div>
                 <div className="date">
                     2024.09.23
@@ -38,7 +38,7 @@ function News() {
                     제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 </div>
                 <div className="img">
-                    <img src="/img/news3.png" alt="" />
+                    <img src="img/news3.png" alt="" />
                 </div>
                 <div className="date">
                     2024.09.23
@@ -49,7 +49,7 @@ function News() {
                     제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 </div>
                 <div className="img">
-                    <img src="/img/news3.png" alt="" />
+                    <img src="img/news3.png" alt="" />
                 </div>
                 <div className="date">
                     2024.09.23
@@ -60,7 +60,7 @@ function News() {
                     제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 </div>
                 <div className="img">
-                    <img src="/img/news3.png" alt="" />
+                    <img src="img/news3.png" alt="" />
                 </div>
                 <div className="date">
                     2024.09.23

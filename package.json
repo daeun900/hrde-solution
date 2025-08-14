@@ -1,6 +1,7 @@
 {
   "name": "hrde-solution",
   "version": "0.1.0",
+  "homepage": "https://hrde.co.kr/renewal",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",

@@ -34,8 +34,8 @@ function Header() {
 
   const logoSrc =
     isTransparentRoute && !isScrolled && !isBlackRoute
-      ? '/img/header-logo-white.png'
-      : '/img/header-logo.png';
+      ? 'img/header-logo-white.png'
+      : 'img/header-logo.png';
 
   return (
     <header className={headerClass}>

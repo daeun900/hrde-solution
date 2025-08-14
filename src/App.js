@@ -24,7 +24,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-  <Router>
+  <Router basename="/renewal">
     <Header />  
     <ScrollToTop /> 
     <Routes>

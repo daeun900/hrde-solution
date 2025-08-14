@@ -46,9 +46,9 @@ function Consulting() {
                 </div>
                 <div className="img">
                     {[
-                        { src: "/img/consulting/banner-icn1.png", alt: "아이콘" },
-                        { src: "/img/consulting/banner-icn2.png", alt: "아이콘" },
-                        { src: "/img/consulting/banner-icn3.png", alt: "아이콘" },
+                        { src: "img/consulting/banner-icn1.png", alt: "아이콘" },
+                        { src: "img/consulting/banner-icn2.png", alt: "아이콘" },
+                        { src: "img/consulting/banner-icn3.png", alt: "아이콘" },
                     ].map((img, i) => (
                         <img
                         key={i}
@@ -71,7 +71,7 @@ function Consulting() {
                 </div>
                 <div className="content">
                     <div>
-                        <div className="img"><img src="/img/consulting/con1-icn1.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con1-icn1.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>성과 중심의 컨설팅</strong>
                             <p>결과물을 바로 낼 수 있는 <br />
@@ -79,7 +79,7 @@ function Consulting() {
                         </div>
                     </div>
                     <div>
-                        <div className="img"><img src="/img/consulting/con1-icn2.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con1-icn2.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>맞춤형 컨설팅</strong>
                             <p>각 교육원의 특성과 필요에 맞춘 <br />
@@ -87,7 +87,7 @@ function Consulting() {
                         </div>
                     </div>
                     <div>
-                        <div className="img"><img src="/img/consulting/con1-icn3.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con1-icn3.png" alt="아이콘" /></div>
                         <div className="txt">
                             <strong>검증된 전문가</strong>
                             <p>문제 해결에 대한<br />
@@ -113,15 +113,15 @@ function Consulting() {
                 <div className="content">
                     <div>
                         <div className="txt">원격평생교육시설 인허가 컨설팅</div>
-                        <div className="img"><img src="/img/consulting/con2-icn1.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con2-icn1.png" alt="아이콘" /></div>
                     </div>
                     <div>
                         <div className="txt">인증평가(서류) 컨설팅</div>
-                        <div className="img"><img src="/img/consulting/con2-icn2.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con2-icn2.png" alt="아이콘" /></div>
                     </div>
                     <div>
                         <div className="txt">인증평가(현장) 컨설팅</div>
-                        <div className="img"><img src="/img/consulting/con2-icn3.png" alt="아이콘" /></div>
+                        <div className="img"><img src="img/consulting/con2-icn3.png" alt="아이콘" /></div>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@ function Consulting() {
                     </strong>
                 </div>
                 <div className="content">
-                    <img src="/img/consulting/con3.png" alt="사전미팅, 계약진행, 서류컨설팅, 현장컨설팅" />
+                    <img src="img/consulting/con3.png" alt="사전미팅, 계약진행, 서류컨설팅, 현장컨설팅" />
                 </div>
             </div>
         </div>
@@ -188,11 +188,11 @@ function Consulting() {
                 <div className="wrap">
                     <div className="content">
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                             서비스 요금 <ArrowRight size={30} />
                         </div>
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                             견적 문의 <ArrowRight size={30} />
                         </div>
                     </div>

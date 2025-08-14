@@ -99,9 +99,9 @@ function Contents() {
                 </div>
                 <div className="img">
                     {[
-                        { src: "/img/cont/cont-banner-icn1.png", alt: "필름 아이콘" },
-                        { src: "/img/cont/cont-banner-icn2.png", alt: "노트북 아이콘" },
-                        { src: "/img/cont/cont-banner-icn3.png", alt: "책 아이콘" },
+                        { src: "img/cont/cont-banner-icn1.png", alt: "필름 아이콘" },
+                        { src: "img/cont/cont-banner-icn2.png", alt: "노트북 아이콘" },
+                        { src: "img/cont/cont-banner-icn3.png", alt: "책 아이콘" },
                     ].map((img, i) => (
                         <img
                         key={i}
@@ -156,18 +156,18 @@ function Contents() {
                     </div>
                     <div className="content">
                         <div className="img">
-                            <img src="/img/cont/cont-con1.png" alt="전문성, 체계성, 다양성" />
+                            <img src="img/cont/cont-con1.png" alt="전문성, 체계성, 다양성" />
                         </div>
                         <ul>
                             <li>
-                            <div className="img"><img src="/img/cont/cont-con1-icn1.png" alt="" /></div>
+                            <div className="img"><img src="img/cont/cont-con1-icn1.png" alt="" /></div>
                             <div className="txt">
                                     <strong>교육 콘텐츠 기획·개발</strong>
                                     <p>고객의 니즈와 최신 트렌드를 파악하여 교육대상, 목적, 내용에 맞는 맞춤형 콘텐츠 기획·개발</p>
                             </div>
                             </li>
                             <li>
-                            <div className="img"><img src="/img/cont/cont-con1-icn2.png" alt="" /></div>
+                            <div className="img"><img src="img/cont/cont-con1-icn2.png" alt="" /></div>
                             <div className="txt">
                                     <strong>이러닝 콘텐츠 제작</strong>
                                     <p>다양한 분야의 풍부한 이러닝 콘텐츠 제작 경험을 바탕으로 고품질의 우수한 이러닝 콘텐츠 제작</p>
@@ -186,7 +186,7 @@ function Contents() {
                 </div>
                 <div className="content">
                     <div className="img">
-                        <img src="/img/cont/cont-con2.png" alt="인트로,사전 지식 테스트, 학습을 시작하며, 플립러닝, 본강의, 키포인트, 아웃트로" />
+                        <img src="img/cont/cont-con2.png" alt="인트로,사전 지식 테스트, 학습을 시작하며, 플립러닝, 본강의, 키포인트, 아웃트로" />
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@ function Contents() {
                 </div>
                 <div className="content">
                     <div className="img">
-                        <img src="/img/cont/cont-con3.png" alt="상담 및 컨설팅, 기획 및 계획 수립, 촬영 및 디렉팅, 후반 작업, 최종 검수 및 납품" />
+                        <img src="img/cont/cont-con3.png" alt="상담 및 컨설팅, 기획 및 계획 수립, 촬영 및 디렉팅, 후반 작업, 최종 검수 및 납품" />
                     </div>
                 </div>
             </div>
@@ -222,11 +222,11 @@ function Contents() {
                 <div className="wrap">
                     <div className="content">
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                             서비스 요금 <ArrowRight size={30} />
                         </div>
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                             견적 문의 <ArrowRight size={30} />
                         </div>
                     </div>
@@ -268,32 +268,32 @@ function Contents() {
                     </div>
                     <div className="content">
                         <div className="img">
-                            <img src="/img/cont/cont-con5-img.png" alt="HRDe Solution 고품질 콘텐츠" />
+                            <img src="img/cont/cont-con5-img.png" alt="HRDe Solution 고품질 콘텐츠" />
                         </div>
                         <ul>
                             <li>
-                                <div className="img"><img src="/img/cont/cont-con5-icn1.png" alt="" /></div>
+                                <div className="img"><img src="img/cont/cont-con5-icn1.png" alt="" /></div>
                                 <div className="txt">
                                     콘텐츠 제작 비용 없이 <br />
                                     저렴한 비용으로 콘텐츠 임대
                                 </div>
                             </li>
                             <li>
-                                <div className="img"><img src="/img/cont/cont-con5-icn2.png" alt="" /></div>
+                                <div className="img"><img src="img/cont/cont-con5-icn2.png" alt="" /></div>
                                 <div className="txt">
                                     콘텐츠를 쉽고 편리하게 <br />
                                     과정으로 등록
                                 </div>
                             </li>
                             <li>
-                                <div className="img"><img src="/img/cont/cont-con5-icn3.png" alt="" /></div>
+                                <div className="img"><img src="img/cont/cont-con5-icn3.png" alt="" /></div>
                                 <div className="txt">
                                     100% HRDe Solution이 <br />
                                     자체 제작한 콘텐츠를 운용
                                 </div>
                             </li>
                              <li>
-                                <div className="img"><img src="/img/cont/cont-con5-icn4.png" alt="" /></div>
+                                <div className="img"><img src="img/cont/cont-con5-icn4.png" alt="" /></div>
                                 <div className="txt">
                                   최신 콘텐츠 다수 포함<br />
                                   주기적으로 업데이트 진행
@@ -323,15 +323,15 @@ function Contents() {
                         </div>
                         <div className="lec-slide">
                             <div>
-                                <div className="img"><img src="/img/cont/lec1.png" alt="반도체, 뭐가 그리 특별하죠?" /></div>
+                                <div className="img"><img src="img/cont/lec1.png" alt="반도체, 뭐가 그리 특별하죠?" /></div>
                                 <div className="txt">직무 역량</div>
                             </div>
                             <div>
-                                <div className="img"><img src="/img/cont/lec2.png" alt="팀워크, 말에서 시작된다" /></div>
+                                <div className="img"><img src="img/cont/lec2.png" alt="팀워크, 말에서 시작된다" /></div>
                                 <div className="txt">리더십</div>
                             </div>
                             <div>
-                                <div className="img"><img src="/img/cont/lec3.png" alt="AI 레이싱 경기" /></div>
+                                <div className="img"><img src="img/cont/lec3.png" alt="AI 레이싱 경기" /></div>
                                 <div className="txt">공통 역량</div>
                             </div>
                            
@@ -347,7 +347,7 @@ function Contents() {
                     </div>
                      <div className="content">
                         <div className="img">
-                            <img src="/img/cont/cont-con7.png" alt="필요컨텐츠 확인, 상담 신청 및 계약, 포팅, 과정 등록, 서비스 시작" />
+                            <img src="img/cont/cont-con7.png" alt="필요컨텐츠 확인, 상담 신청 및 계약, 포팅, 과정 등록, 서비스 시작" />
                         </div>
                          <div className="qna">
                             <div className="q" onClick={toggleAnswer}>
@@ -371,11 +371,11 @@ function Contents() {
                 <div className="wrap">
                     <div className="content">
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn1.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                             서비스 요금 <ArrowRight size={30} />
                         </div>
                         <div onClick={() => navigate('/consult')}>
-                            <div className="icn"><img src="/img/lms/lms-con7-icn2.png" alt="" /></div>
+                            <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                             견적 문의 <ArrowRight size={30} />
                         </div>
                     </div>

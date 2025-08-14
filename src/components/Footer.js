@@ -12,9 +12,9 @@ function Footer() {
               <li><Link to="/">찾아오시는 길</Link></li>
             </ul>
             <ul className="social">
-              <li><Link to="http://pf.kakao.com/_xaSSxgxj/chat"><img src="/img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
-              <li><Link to="https://www.youtube.com/@hrd9130"><img src="/img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
-              <li><Link to="https://blog.naver.com/hrdesolution"><img src="/img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
+              <li><Link to="http://pf.kakao.com/_xaSSxgxj/chat"><img src="img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
+              <li><Link to="https://www.youtube.com/@hrd9130"><img src="img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
+              <li><Link to="https://blog.naver.com/hrdesolution"><img src="img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
             </ul>
           </div>
           </div>
@@ -36,7 +36,7 @@ function Footer() {
                 </ul>
               </div>
               <div className="right">
-                <div className="icn"><img src="/img/footer-icn.png" alt="아이콘"/>고객센터<CaretRight size={16}/></div>
+                <div className="icn"><img src="img/footer-icn.png" alt="아이콘"/>고객센터<CaretRight size={16}/></div>
                 <div className="cs">
                   <strong>1811-9530</strong>
                   <p><b>상담시간</b>평일 09:00 ~ 18:00</p>
