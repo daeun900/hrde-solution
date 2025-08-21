@@ -1,42 +1,72 @@
 import "../css/news.scss";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const BASE = "https://hrde.co.kr/wp-json/hrde/v1";
 
 function NewsDetail() {
-        const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { idx } = useParams();
+  const [news, setNews] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-      return (
-    <>
-      <div className="news_detail">
-        <div className="wrap">
-           <div className="title">
-                <strong>
-                  제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
-                </strong>
-                <span>
-                  2024.09.15 
-                </span>
-            </div>
-            <div className="content">
-                  <p>
-                    HRDe솔류션의 사업주훈련과 내일배움카드,  HRD FLEX까지 포함된 신규 LMS가 개발이 완료됐습니다.
-                  </p>
-                  <img src="img/news-detail.png" alt="" />
-            </div>
-            <div className="news-nav">
-                <div className="prev">
-                    <span> <CaretUp size={25} />PREV </span>
-                    제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목             
-                </div>
-                <div className="next">
-                      <span> <CaretDown size={25} />NEXT </span>
-                      제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
-                </div>
-            </div>
-            <button onClick={() => navigate('/news')}>목록</button>
+  async function fetchNewsDetail(id) {
+    const url = `${BASE}/news/${id}`;
+    const res = await axios.get(url, {
+      headers: { "Content-Type": "application/json; charset=utf-8" }
+    });
+    return res.data;
+  }
+
+  useEffect(() => {
+    if (!idx) return;
+    fetchNewsDetail(idx)
+      .then(data => setNews(data))
+      .catch(err => console.error("뉴스 상세 불러오기 실패:", err))
+      .finally(() => setLoading(false));
+  }, [idx]);
+
+  if (loading) return <div>로딩 중...</div>;
+  if (!news) return <div>뉴스를 불러올 수 없습니다.</div>;
+
+  return (
+    <div className="news_detail">
+      <div className="wrap">
+        <div className="title">
+          <strong>{news.Title}</strong>
+          <span>{news.RegDate}</span>
         </div>
+
+        <div className="content" dangerouslySetInnerHTML={{ __html: news.Content }} />
+
+        <div className="news-nav">
+          {news.Prev && (
+            <div
+              className="prev"
+              onClick={() => navigate(`/newsdetail/${news.Prev.idx}`)}
+              style={{cursor: "pointer"}}
+            >
+              <span><CaretUp size={25} /> PREV </span>
+              {news.Prev.Title}
+            </div>
+          )}
+          {news.Next && (
+            <div
+              className="next"
+              onClick={() => navigate(`/newsdetail/${news.Next.idx}`)}
+              style={{cursor: "pointer"}}
+            >
+              <span><CaretDown size={25} /> NEXT </span>
+              {news.Next.Title}
+            </div>
+          )}
+        </div>
+
+        <button onClick={() => navigate('/news')}>목록</button>
       </div>
-    </>
+    </div>
   );
 }
 

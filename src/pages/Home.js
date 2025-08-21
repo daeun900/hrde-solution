@@ -1,8 +1,9 @@
-  import { useState, useRef } from "react";
+  import { useState, useRef, useEffect } from "react";
 import "../css/main.scss";
 import PriceCard from "../components/PriceCard";
 import { ArrowRight } from "@phosphor-icons/react";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function Home() {
   const contentRef = useRef(null);
@@ -14,7 +15,65 @@ function Home() {
 
   const [activeTab, setActiveTab] = useState(0);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  // 뉴스
+  const [homeNews, setHomeNews] = useState([]);
+  const [newsLoading, setNewsLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("https://hrde.co.kr/wp-json/hrde/v1/news", {
+      params: { page: 1, per_page: 3 } 
+    })
+    .then(res => {
+      const data = Array.isArray(res.data) ? res.data : (res.data?.items ?? []);
+      setHomeNews(data);
+    })
+    .catch(err => {
+      console.error("메인 뉴스 불러오기 실패:", err);
+      setHomeNews([]);
+    })
+    .finally(() => setNewsLoading(false));
+  }, []);
+
+  //간단 상담문의
+  const [quick, setQuick] = useState({ name: "", email: "" });
+  const [quickLoading, setQuickLoading] = useState(false);
+  const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+  const submitQuick = async () => {
+    if (!quick.name.trim()) return alert("이름을 입력해주세요.");
+    if (!quick.email.trim() || !isEmail(quick.email)) return alert("올바른 이메일을 입력해주세요.");
+
+    const payload = {
+      Name: quick.name.trim(),
+      Phone: "",                 // 배너 폼엔 없음 → 빈 값
+      Email: quick.email.trim(),
+      Contents:
+        `<p><b>[홈 간단 상담문의]</b></p>` +
+        `<p>이름: ${quick.name}</p>` +
+        `<p>이메일: ${quick.email}</p>`,
+      CompanyName: "",           // 선택 없음 → 빈 값
+      PrivacyConsent: "Y",       // 배너는 간단 접수 → Y로 처리(필요 시 UI 추가 가능)
+      website: "",               // honeypot 반드시 빈 문자열
+      // ServiceType / AcqChannel 생략 (API 단일값만 허용)
+    };
+
+    setQuickLoading(true);
+    try {
+      await axios.post("https://hrde.co.kr/wp-json/hrde/v1/consulting", payload, {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+      });
+      alert("간편 상담 문의가 접수되었습니다. 감사합니다!");
+      setQuick({ name: "", email: "" });
+    } catch (err) {
+      console.error("간편 상담 접수 실패:", err?.response?.data || err);
+      alert(err?.response?.data?.message || "접수 중 오류가 발생했습니다.");
+    } finally {
+      setQuickLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="video_box">
@@ -27,10 +86,22 @@ function Home() {
               <img src="img/main/main-banner-icn1.png" alt="아이콘" />
               <p>상담문의</p>
             </div>
-            <div className="form">
-              <input type="text" placeholder="이름을 입력하세요." />
-              <input type="text" placeholder="이메일을 입력하세요." />
-              <button onClick={() => navigate('/consult')}>상담신청</button>
+           <div className="form">
+              <input
+                type="text"
+                placeholder="이름을 입력하세요."
+                value={quick.name}
+                onChange={(e) => setQuick((p) => ({ ...p, name: e.target.value }))}
+              />
+             <input
+                type="text"
+                placeholder="이메일을 입력하세요."
+                value={quick.email}
+                onChange={(e) => setQuick((p) => ({ ...p, email: e.target.value }))}
+              />
+              <button onClick={submitQuick} disabled={quickLoading}>
+                {quickLoading ? "전송 중..." : "상담신청"}
+              </button>
             </div>
             <div className="txt">
               <img src="img/main/main-banner-icn2.png" alt="아이콘" />
@@ -274,32 +345,47 @@ function Home() {
         </div>
       </div>
       
-      <div className="main_sec5">
-        <div className="wrap">
-          <div className="title">HRDe NEWS</div>
-          <div className="con">
-            <div className="news">
-              <div className="img">
-                <img src="img/news1.png" alt="뉴스 예시" />
-              </div>
-              <div className="txt">HRDe솔루션 원격훈련기관 간담회</div>
-            </div>
-            <div className="news">
-              <div className="img">
-                <img src="img/news2.png" alt="뉴스 예시" />
-              </div>
-              <div className="txt">HRDe솔루션 임직원 2023년 송년회</div>
-            </div>
-            <div className="news">
-              <div className="img">
-                <img src="img/news3.png" alt="뉴스 예시" />
-              </div>
-              <div className="txt">HRDe솔루션 임직원 법정의무교육 수강</div>
-            </div>
-          </div>
-          <button className="more" onClick={() => navigate('/news')}>더보기 +</button>
-        </div>
+     <div className="main_sec5">
+  <div className="wrap">
+    <div className="title">HRDe NEWS</div>
+
+    {/* 로딩 중 */}
+    {newsLoading && (
+      <div className="con">
+        <div className="news"><div className="img" /><div className="txt">불러오는 중...</div></div>
+        <div className="news"><div className="img" /><div className="txt">불러오는 중...</div></div>
+        <div className="news"><div className="img" /><div className="txt">불러오는 중...</div></div>
       </div>
+    )}
+
+    {/* 데이터 있는 경우 */}
+    {!newsLoading && homeNews.length > 0 && (
+      <div className="con">
+        {homeNews.map(item => (
+          <div
+            key={item.idx}
+            className="news"
+            onClick={() => navigate(`/newsdetail/${item.idx}`)}
+            style={{ cursor: "pointer" }}
+          >
+            <div className="img">
+              <img src={item.Thumbnail || "img/news-thumbnail.jpg"} alt={item.Title} />
+            </div>
+            <div className="txt">{item.Title} </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* 데이터 없는 경우*/}
+    {!newsLoading && homeNews.length === 0 && (
+        <div className="txt">등록된 뉴스가 없습니다.</div>
+    )}
+
+    <button className="more" onClick={() => navigate('/news')}>더보기 +</button>
+  </div>
+</div>
+
     </>
   );
 }

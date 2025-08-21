@@ -34,7 +34,7 @@ function App() {
       <Route path="/consulting" element={<Consulting/>} />  
       <Route path="/consult" element={<Consult/>} />  
       <Route path="/news" element={<News/>} />  
-      <Route path="/newsdetail" element={<NewsDetail/>} />  
+      <Route path="/newsdetail/:idx" element={<NewsDetail/>} />  
     </Routes>
     <Footer />  
   </Router>
