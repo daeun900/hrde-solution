@@ -8,13 +8,13 @@ function Footer() {
         <div className="top">
           <div className="wrap">
             <ul className="link">
-              <li><Link to="/">회사 소개</Link></li>
-              <li><Link to="/">찾아오시는 길</Link></li>
+              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html"  target="_blank" >회사 소개</Link></li>
+              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html"  target="_blank" >찾아오시는 길</Link></li>
             </ul>
             <ul className="social">
-              <li><Link to="http://pf.kakao.com/_xaSSxgxj/chat"><img src="img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
-              <li><Link to="https://www.youtube.com/@hrd9130"><img src="img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
-              <li><Link to="https://blog.naver.com/hrdesolution"><img src="img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
+              <li><Link to="http://pf.kakao.com/_xaSSxgxj/chat"  target="_blank" ><img src="img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
+              <li><Link to="https://blog.naver.com/hrdesolution"  target="_blank" ><img src="img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
+              <li><Link to="https://www.youtube.com/@hrd9130"  target="_blank" ><img src="img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
             </ul>
           </div>
           </div>

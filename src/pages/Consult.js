@@ -100,11 +100,11 @@ function Consult() {
             <b>지금 바로 HRDe Solution과 함께 하세요.</b>
           </p>
 
-          <button>
-            LMS 제안서 다운로드 <ArrowRight size={20} weight="bold" />
+          <button onClick={() => window.open("/down/2024_HRDe.pdf", "_blank")}>
+            LMS 브로슈어 다운로드 <ArrowRight size={20} weight="bold" />
           </button>
-          <button>
-            콘텐츠 제안서 다운로드 <ArrowRight size={20} weight="bold" />
+          <button onClick={() => window.open("/down/2024_Content.pdf", "_blank")}>
+            콘텐츠 브로슈어 다운로드 <ArrowRight size={20} weight="bold" />
           </button>
         </div>
       </div>

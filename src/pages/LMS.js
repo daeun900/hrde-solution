@@ -627,9 +627,11 @@ function LMS() {
             </p>
         </div>
         <div className="content">
-            <div className="img">
-                <img src="img/lms/lms-con11-1.png" alt="랜딩사이트 이동" />
-            </div>
+            <a href="https://www.hrdelms.com/landingpage/main.html" target="_blank" rel="noopener noreferrer">
+                <div className="img">
+                    <img src="img/lms/lms-con11-1.png" alt="랜딩사이트 이동" />
+                </div>
+            </a>
         </div>
     </div>
     <div className="lms_con lms_con11">
@@ -643,10 +645,11 @@ function LMS() {
             </p>
         </div>
         <div className="content">
-            <div className="img">
-                <img src="img/lms/lms-con11-2.png" alt="LMS 사이트 이동" />
-            </div>
-
+            <a href="https://www.hrdelms.com/hrdedu/main/main.html" target="_blank" rel="noopener noreferrer">
+                <div className="img">
+                    <img src="img/lms/lms-con11-2.png" alt="LMS 사이트 이동" />
+                </div>
+            </a>
         </div>
     </div>
     <div className="lms_con lms_con11">
@@ -655,14 +658,15 @@ function LMS() {
              HRDe 아카이브
             </strong>
             <p>
-                  <span style={{ color: "#52A3CF" }}>강력한 큐레이션 기능</span>을 통해 맞춤형 교육을 실시할 수 있는 HRDe아카이브 플랫폼
+                <span style={{ color: "#52A3CF" }}>강력한 큐레이션 기능</span>을 통해 맞춤형 교육을 실시할 수 있는 HRDe아카이브 플랫폼
             </p>
         </div>
         <div className="content">
-            <div className="img">
-                 <img src="img/lms/lms-con11-3.png" alt="아카이브 사이트 이동" />
-            </div>
-     
+            <a href="https://www.hrdeedu.co.kr/archive/main/main.html" target="_blank" rel="noopener noreferrer">
+                <div className="img">
+                     <img src="img/lms/lms-con11-3.png" alt="아카이브 사이트 이동" />
+                </div>
+            </a>
         </div>
     </div>
     </>

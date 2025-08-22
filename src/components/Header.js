@@ -44,18 +44,14 @@ function Header() {
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <img src={logoSrc} alt="HRDe Solution" />
           </Link>
-
-<button
-  className={`menuToggle ${isScrolled ? 'scrolled' : ''} ${menuOpen ? 'open' : ''}`}
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  <span className="bar top" />
-  <span className="bar middle" />
-  <span className="bar bottom" />
-</button>
-
-
-
+          <button
+            className={`menuToggle ${isScrolled ? 'scrolled' : ''} ${menuOpen ? 'open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="bar top" />
+            <span className="bar middle" />
+            <span className="bar bottom" />
+          </button>
           {/* 오버레이 */}
           {menuOpen && <div className="menuDimmed" onClick={() => setMenuOpen(false)}></div>}
 
@@ -63,7 +59,7 @@ function Header() {
             <li><Link to="/lms" onClick={() => setMenuOpen(false)}>LMS</Link></li>
             <li><Link to="/contents" onClick={() => setMenuOpen(false)}>CONTENTS</Link></li>
             <li><Link to="/consulting" onClick={() => setMenuOpen(false)}>CONSULTING</Link></li>
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>모아</Link></li>
+            <li><a   href="http://www.hrdemoa.com/" target="_blank"  rel="noopener noreferrer"  onClick={() => setMenuOpen(false)}>모아</a></li>
             <li><Link to="/consult" className='btn' onClick={() => setMenuOpen(false)}>상담문의</Link></li>
           </ul>
         </nav>

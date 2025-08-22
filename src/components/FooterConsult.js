@@ -3,10 +3,10 @@ import ButtonGroup from './ButtonGroup';
 
 function FooterConsult() {
   const buttons = [
-    { label: "HRDe LMS", description: "통합본 다운로드", link: "/files/integrated.pdf" },
-    { label: "HRDe LMS", description: "브로슈어 다운로드", link: "/files/brochure.pdf" },
-    { label: "HRDe LMS", description: "APP 브로슈어 다운로드", link: "/files/app_brochure.pdf" },
-    { label: "HRDe LMS", description: "디자인 매뉴얼 다운로드", link: "/files/design_manual.pdf" }
+    { label: "HRDe LMS", description: "통합본 다운로드", link: "/down/2024_HRDe.pdf" },
+    { label: "HRDe LMS", description: "콘텐츠 브로슈어 다운로드", link: "/down/2024_Content.pdf" },
+/*     { label: "HRDe LMS", description: "APP 브로슈어 다운로드", link: "/files/app_brochure.pdf" },
+    { label: "HRDe LMS", description: "디자인 매뉴얼 다운로드", link: "/files/design_manual.pdf" } */
   ];
 
     return(
