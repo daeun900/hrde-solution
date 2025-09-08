@@ -1,6 +1,7 @@
 import "../css/consult.scss";
 import { ArrowRight } from "@phosphor-icons/react";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // 체크박스 코드 매핑(첫 번째 체크만 사용)
@@ -9,6 +10,32 @@ const acqMap = { website: "A", recommend: "B", ad: "C", etc: "D" };
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 function Consult() {
+  
+// 폼 바로가기
+const location = useLocation();     
+const navigate = useNavigate();     
+const formRef = useRef(null);    
+
+useEffect(() => {
+  if (location.state?.scrollTo === "form") {
+    setTimeout(() => {
+      if (formRef.current) {
+        const headerOffset = 200; // 헤더 높이 
+        const elementPosition = formRef.current.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+      navigate(location.pathname, { replace: true, state: {} });
+    }, 0);
+  }
+}, [location.state, navigate, location.pathname]);
+
+
+  //문의 접수
   const [form, setForm] = useState({
     contact_name: "",
     company_name: "",
@@ -31,7 +58,6 @@ function Consult() {
     }
   };
 
-
   const validate = () => {
     if (!form.contact_name || form.contact_name.length > 50) return "담당자명을 입력하세요.";
     if (!form.contact_phone || form.contact_phone.length > 250) return "연락처를 입력하세요.";
@@ -46,9 +72,6 @@ function Consult() {
     e.preventDefault();
     const err = validate();
     if (err) return alert(err);
-
-    const firstService = form.inquiry_type[0];
-    const firstAcq = form.referral_source[0];
 
     const payload = {
       Name: form.contact_name,
@@ -67,7 +90,7 @@ function Consult() {
       await axios.post(`https://hrde.co.kr/wp-json/hrde/v1/consulting`, payload, {
         headers: { "Content-Type": "application/json; charset=utf-8" },
       });
-      alert("문의가 접수되었습니다. 감사합니다!");
+      alert("문의가 접수되었습니다.");
       setForm({
         contact_name: "",
         company_name: "",
@@ -87,6 +110,8 @@ function Consult() {
     }
   };
 
+   //개인정보 수집 문구 토글
+   const [showPolicy, setShowPolicy] = useState(false);
   return (
     <>
       <div className="consult_banner">
@@ -109,7 +134,7 @@ function Consult() {
         </div>
       </div>
 
-      <div className="consult_form">
+      <div className="consult_form" ref={formRef}>
         <div className="wrap">
           {/* 전송 폼으로 감싸기 */}
           <form onSubmit={handleSubmit} noValidate>
@@ -289,9 +314,43 @@ function Consult() {
                 />
                 문의를 위한 개인정보 활용에 동의합니다.
               </label>
-              <p className="more">자세히 보기</p>
+               <p
+                className="more"
+                aria-expanded={showPolicy}
+                aria-controls="policy-panel"
+                onClick={() => setShowPolicy(v => !v)}>
+                {showPolicy ? "닫기" : "자세히 보기"}
+              </p>
             </div>
-
+    <div id="policy-panel" className={`policy_box ${showPolicy ? "open" : ""}`} >
+                <h4>개인정보 처리 동의(필수)</h4>
+                <ul>
+                  <li>
+                    <b>수집 항목</b> : 담당자명, 연락처, 이메일, 기업명, 문의 내용, 접속 로그/쿠키(필요 시)
+                  </li>
+                  <li>
+                    <b>수집 목적</b> : 상담 및 견적 제공, 서비스 안내/문의 대응, 고객 관리 및 민원 처리
+                  </li>
+                  <li>
+                    <b>보유·이용 기간</b> : 목적 달성 후 즉시 파기 (단, 관련 법령에 따른 보존 기간이 있는 경우 해당 기간 보관)
+                  </li>
+                  <li>
+                    <b>제3자 제공</b> : 원칙적으로 제공하지 않음. 제공이 필요한 경우 사전 동의 획득 또는 법령에 근거하여 처리
+                  </li>
+                  <li>
+                    <b>처리 위탁</b> : 시스템 운영/유지보수, 고객상담 등을 위해 수탁사에 위탁할 수 있음(위탁 시 개인정보 보호를 위한 계약 및 관리·감독 실시)
+                  </li>
+                  <li>
+                    <b>동의 거부 권리</b> : 귀하는 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으며, 다만 동의하지 않을 경우 상담 및 서비스 안내가 제한될 수 있음
+                  </li>
+                  <li>
+                    <b>파기 절차 및 방법</b> : 보유 기간 경과 또는 처리 목적 달성 시 지체 없이 안전한 방법으로 파기
+                  </li>
+                </ul>
+                <p className="note">
+                  ※ 본 동의서는 「개인정보 보호법」 등 관련 법령을 준수하며, 보다 상세한 내용은 개인정보처리방침을 참조해 주세요.
+                </p>
+              </div>
             <button type="submit" disabled={submitting}>
               {submitting ? "전송 중..." : "문의하기"}
             </button>

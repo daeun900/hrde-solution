@@ -42,24 +42,24 @@ function NewsDetail() {
         <div className="content" dangerouslySetInnerHTML={{ __html: news.Content }} />
 
         <div className="news-nav">
-          {news.Prev && (
+          {news.prev && (
             <div
               className="prev"
-              onClick={() => navigate(`/newsdetail/${news.Prev.idx}`)}
+              onClick={() => navigate(`/newsdetail/${news.prev.idx}`)}
               style={{cursor: "pointer"}}
             >
               <span><CaretUp size={25} /> PREV </span>
-              {news.Prev.Title}
+              {news.prev.Title}
             </div>
           )}
-          {news.Next && (
+          {news.next && (
             <div
               className="next"
-              onClick={() => navigate(`/newsdetail/${news.Next.idx}`)}
+              onClick={() => navigate(`/newsdetail/${news.next.idx}`)}
               style={{cursor: "pointer"}}
             >
               <span><CaretDown size={25} /> NEXT </span>
-              {news.Next.Title}
+              {news.next.Title}
             </div>
           )}
         </div>

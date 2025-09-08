@@ -225,7 +225,7 @@ function Contents() {
                             <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                             서비스 요금 <ArrowRight size={30} />
                         </div>
-                        <div onClick={() => navigate('/consult')}>
+                        <div onClick={() => navigate('/consult', { state: { scrollTo: 'form' } })}>
                             <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                             견적 문의 <ArrowRight size={30} />
                         </div>
@@ -374,7 +374,7 @@ function Contents() {
                             <div className="icn"><img src="img/lms/lms-con7-icn1.png" alt="" /></div>
                             서비스 요금 <ArrowRight size={30} />
                         </div>
-                        <div onClick={() => navigate('/consult')}>
+                        <div onClick={() => navigate('/consult', { state: { scrollTo: 'form' } })}>
                             <div className="icn"><img src="img/lms/lms-con7-icn2.png" alt="" /></div>
                             견적 문의 <ArrowRight size={30} />
                         </div>

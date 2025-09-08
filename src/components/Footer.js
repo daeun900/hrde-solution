@@ -8,13 +8,13 @@ function Footer() {
         <div className="top">
           <div className="wrap">
             <ul className="link">
-              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html"  target="_blank" >회사 소개</Link></li>
-              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html"  target="_blank" >찾아오시는 길</Link></li>
+              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html" target="_blank" >회사 소개</Link></li>
+              <li><Link to="https://www.hrdeedu.com/hrdedu/group/introduce.html" target="_blank" >찾아오시는 길</Link></li>
             </ul>
             <ul className="social">
-              <li><Link to="http://pf.kakao.com/_xaSSxgxj/chat"  target="_blank" ><img src="img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
-              <li><Link to="https://blog.naver.com/hrdesolution"  target="_blank" ><img src="img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
-              <li><Link to="https://www.youtube.com/@hrd9130"  target="_blank" ><img src="img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
+              <li><Link to="https://pf.kakao.com/_kEcWxj/chat" target="_blank" ><img src="img/footer-soc1.png" alt="카카오톡 바로가기" /></Link></li>
+              <li><Link to="https://blog.naver.com/hrdesolution" target="_blank" ><img src="img/footer-soc2.png" alt="블로그 바로가기" /></Link></li>
+              <li><Link to="https://www.youtube.com/@hrd9130" target="_blank" ><img src="img/footer-soc3.png" alt="유튜브 바로가기" /></Link></li>
             </ul>
           </div>
           </div>
@@ -23,7 +23,7 @@ function Footer() {
               <div className="left">
                 <ul>
                   <li><b>(주)HRDe 솔루션</b></li>
-                  <li>대표자: 박병래</li>
+                  <li>대표자 : 박병래</li>
                   <li>사업자등록번호 : 591-87-02242</li>
                   <li>개인정보관리자 : 노현정</li>
                 </ul>

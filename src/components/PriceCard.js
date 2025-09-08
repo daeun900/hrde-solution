@@ -29,10 +29,10 @@ function PriceCard({ title, price, priceDesc, featuresTitle, featuresList, featu
     }}
   />
       </div>
-      <button onClick={() => navigate('/consult')}>
-        <p>견적 문의</p>
-        <ArrowRight size={20} weight="bold" />
-      </button>
+      <button type="button" onClick={() => navigate('/consult', { state: { scrollTo: 'form' } })} >
+      견적 문의 <ArrowRight size={30} />
+    </button>
+
       <div className="exp">
         {featuresTitle && (
         <b dangerouslySetInnerHTML={{ __html: featuresTitle.replace(/\n/g, "<br />") }} />
